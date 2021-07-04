@@ -1,0 +1,19 @@
+body {
+    display: block;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#pageError404 {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/imgPexel/pageErrorBr.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(70%);
+}
