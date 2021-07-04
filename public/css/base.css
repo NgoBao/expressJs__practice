@@ -1,0 +1,71 @@
+:root {
+    /* font size  */
+    --fontSize__big: 2rem;
+    --fontSize__h1: 1.5rem;
+    --fontSize__h2: 1.25rem;
+    --fontSize__h3: 1.125rem;
+    --fontSize__normal: .938rem;
+    --fontSize__small: .831rem;
+    --fontSize__samller: .75rem;
+
+    /* font weight */
+    --fontWeight__slight: 400;
+    --fontWeight__medium: 500;
+    --fontWeight__semiBold: 600;
+
+    /* letter spacing */
+    --letterSpacing__h1: .7rem;
+    --letterSpacing__h3: .4rem;
+
+    /* index flex */
+    --z-index__icon: 10;
+    --z-index__fixed: 100;
+    --z-index__modal: 1000;
+
+    /* design space */
+    --mp-0-25: 0.25rem;
+    --mp-0-75: 0.76rem;
+    --mp-0-5: 0.5rem;
+    --mp-1: 1rem;
+    --mp-1-5: 1.5rem;
+    --mp-2: 2rem;
+    --mp-2-5: 2.5rem;
+    --mp-3: 3rem;
+    --mp-4: 4rem;
+
+    /* font color */
+    --color-black: #141d26;
+    --color-gray: #807f7f;
+    --color-white: rgb(255, 255, 255);
+    --color-greenB: #003333;
+    --color-grayG:#4D5D53;
+
+    /* btn padding */
+    --btn-la: 14px 28px;
+    --btn-lg: 10px 40px; 
+    --btn-s: 10px 12px;
+    --btn-md: 14px 22px;
+
+    /* icon size */
+    --iconSize-s: 1.124rem;
+    --iconSize-md: 1.6rem;
+    --iconSize-l: 1.8rem;
+
+    /* icon padding */
+    --icon-s: 4px;
+    --icon-md: 6px 8px;
+    --icon-l: 6px 12px;
+}
+
+
+@media screen and (min-width: 968px) {
+    :root {
+        --fontSize__big: 3rem;
+        --fontSize__h1: 2.25rem;
+        --fontSize__h2: 1.5rem;
+        --fontSize__h3: 1.25rem;
+        --fontSize__normal: 1rem;
+        --fontSize__small: 0.875rem;
+        --fontSize__samller: 0.813rem;
+    }
+}

@@ -1,4 +1,15 @@
 extends pageFormat.pug 
 
 block notFound404 
-    h1 notfound404 
+    #pageError404
+        .grid.wide
+            .row
+            .col.l-12.md-12
+                h2.pageError404__title OOPS SOMETHING WENT WRONG
+                h1.pageError404__status 404
+                h2.pageError404__error-name Page not found
+                p.pageError404__error-info I tried to catch link, but I missed it
+                a.pageError404__button
+                | Back to home
+                p#alo.pageError404__error-info(href='#')
+                | 2021 error. All rights reserves - page of RockPikin
