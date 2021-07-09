@@ -1,5 +1,6 @@
 :root {
     /* font size  */
+    --fontSize__bigger: 3.5rem;
     --fontSize__big: 2rem;
     --fontSize__h1: 1.5rem;
     --fontSize__h2: 1.25rem;
@@ -58,8 +59,11 @@
 }
 
 
+
+
 @media screen and (min-width: 968px) {
     :root {
+        --fontSize__bigger: 5rem;
         --fontSize__big: 3rem;
         --fontSize__h1: 2.25rem;
         --fontSize__h2: 1.5rem;

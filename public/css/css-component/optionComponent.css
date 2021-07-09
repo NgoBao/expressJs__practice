@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+
+:root {
+    --fontFamily: 'Public Sans', sans-serif;
+    --fontFamilyT: 'Bad Script', cursive;
+}
+
+
+
+#option-component {
+    margin: 0 auto;
+}
+
+.option {
+    width: 500px;
+    height: 200px; 
+    background-color: rgb(38, 148, 148); 
+    margin: 4px;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: hidden;
+    border: none;
+}
+
+
+
+.option__container {
+    width: 458px;
+    background-image: linear-gradient(rgb(231, 231, 231) 1%, transparent 99%);
+    background-position: left;
+    background-size: 2px 8px;
+    background-repeat: repeat-y;
+    position: relative;
+    display: flex;
+    
+}
+
+.option__container::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    transform: translateX(-45%) translateY(-50%);
+}
+
+.option__container::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    transform: translateX(-45%) translateY(50%);    
+}
+
+.option__container-title {
+    padding: 8px;
+    display: block;
+    width: 75%;
+    height: 100%;
+    font-size: 4rem;
+    font-family: var(--fontFamily);
+    font-weight: bolder;
+    color: white;
+    text-align: right;
+    line-height: 300px;
+    position: relative;
+    z-index: 4;
+}
+
+.option__container-body {
+    padding: 2px;
+    display: block;
+    width: 26%;
+    height: 100%;
+    background-color: white;
+    position: relative;
+}
+
+.option__container-body__btn {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+    cursor: pointer;
+    transform-origin: 50% 50%;
+    transition: transform .25s linear;
+    z-index: 0;
+}
+
+
+
+.option__container-body span {
+    text-align: center;
+    font-size: 1rem;
+    font-family: var(--fontFamilyT);
+    display: inline-block;
+    transform: rotate(90deg);
+    transform-origin: .5rem 2rem;
+}
+
+.a {
+    background: url('../../img/imgPexel/optionComponent1.jpg'),rgba(109, 109, 109, 0.849);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.b {
+    background-image: url('../../img/imgPexel/optionComponent2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.b .option__container-body__btn {
+    background-color: rgb(252, 165, 4, .6); 
+}
+
+.a .option__container-body__btn {
+    background-color: rgba(37, 82, 231, .6);
+}
+
+.option__container-body__btn:hover  {
+    transform: scale(15);
+}
+
+.option__container-body__btn:hover ~ span {
+    color: white;
+}
+
+
+.option__container-body__btn:hover ~ .iconOption {
+    transform: translateX(2rem);
+}
+
+.iconOption {
+    display: inline-block;
+    font-size: 3rem;
+    width: 10px;
+    height: 10px;
+    color: white;
+    position: absolute;
+    bottom: 25%;
+    left: 17%;
+    z-index: 4;
+    transition: transform .4s .26s ease-out;
+}
+
+@media screen and (max-width: 550px) {
+    #option-component {
+        transform-origin: 200px 245px;
+        transform: rotate(-90deg);
+    }
+
+    .option {
+        height: 170px;
+    }
+
+    .option__container-title {
+        line-height: 250px;
+    } 
+}

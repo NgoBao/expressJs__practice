@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,247 @@
     <title>WebStore</title>
 
     <!-- icon -->
-    <link 
-        rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" 
-        referrerpolicy="no-referrer" 
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- link css -->
     <link rel="stylesheet" href="../public/css/base.css">
     <link rel="stylesheet" href="../public/css/grid.css">
     <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/img/imgPexel/pexels-cottonbro-3205570.jpg">
 </head>
+
 <body>
-    
+
+
+
+    <!-- header -->
+    <!-- <div id="homePage-header">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-12 md-12 sm-0">
+                    <div class="bar">
+                        <div class="homePage-header__brand">
+                            RockPikin
+                        </div>
+                        <div class="homePage-header__bar">
+                            <a href="#" class="homePage-header__bar-component">Home</a>
+                            <a href="#" class="homePage-header__bar-component">About</a>
+                            <a href="#" class="homePage-header__bar-component">Contact</a>
+                            <a href="#" class="homePage-header__bar-component">Product</a>
+                            <a href="#" class="homePage-header__bar-component">Support</a>
+                        </div>
+                        <div class="homePage-header__account">
+                            <a href="#">Login</a>
+                            <a href="#">logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="homePage-slider">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-7 md-7 sm-10 sm-o-1">
+                    <div class="homePage-slider__content">
+                        <div>
+                            <h2 class="homePage-slider__info">Do you need a </h2>
+                            <h1 class="homePage-slider__heading">WEB DESIGN ? </h1>
+                            <p class="homePage-slider__text">ckeck out our options and feature, then got inspiration</p>
+                            <a href="#" class="homePage-slider__button">
+                                find more
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-5 md-5 sm-8 sm-o-2">
+                    <div class="homePage-slider__show-project">
+                        <div class="img-1"></div>
+                        <div class="img-2"></div>
+                        <div class="img-3"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br><br><br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+
+    <div style="position:relative;">
+        <video autoplay muted loop id="myVideo">
+            <source src="../public/video/istockphoto-498510508-640_adpp_is.mp4" type="video/mp4">
+        </video>
+        <div id="introduction">
+            <div>
+                <h2>Let's take a look</h2>
+                <p>
+                            With 5 years experience in web design sector, 
+                            we guarantee with our customer will got good 
+                            products which are apppropriately with their budget
+                </p>
+                <div class="after-slider__icon"></div>
+            </div>     
+            
+        </div>
+    </div> -->
+
+    <br><br><br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+
+    <div id="homePage-container">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-4 l-o-1 md-10 md-o-1 sm-12" style="padding: 4rem 0;">
+                    <h4 style="font-weight: 500;">
+                        Do you have any question about our price?
+                    </h4>
+                    <p style="color: #262626;">currently, we have two stardard package including normal,
+                        premium that one for business and the other for personal purposes.
+                        However, these product will also sastisfy for your about their own good quality
+                    </p>
+                    <h2>
+                        RockPikin
+                    </h2>
+                </div>
+                <div class="col l-7 md-12 sm-10 sm-o-1">
+                    <div id="option-component">
+                        <div class="option a">
+                            <div class="option__container">
+                                <div class="option__container-title">
+                                    Common
+                                </div>
+                                <div class="option__container-body">
+                                    <div class="option__container-body__btn">
+
+                                    </div>
+                                    <span>More support</span>
+                                    <i class="fas fa-arrow-right iconOption"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="option b">
+                            <div class="option__container">
+                                <div class="option__container-title">
+                                    Premium
+                                </div>
+                                <div class="option__container-body">
+                                    <div class="option__container-body__btn">
+
+                                    </div>
+                                    <span>More qualiti</span>
+                                    <i class="fas fa-arrow-right iconOption"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" style="margin-top: 10rem;">
+                <div class="col l-6 md-6">
+                    <div 
+                    class="homePage-container__companySpecial"
+                    style="
+                        background-image: url('../public/img/imgPexel/pexels-cottonbro-3205570.jpg');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        color: white;
+                    ">
+                        <h1>Skills</h1>
+                        <p> 
+                            possessing a lot of employers with diversified experience
+                            and keep pace with the developement of the world
+                        </p>
+                        <a href="#" class="homePage-slider__button">
+                            find more
+                        </a>
+                    </div>
+                </div>
+                <div class="col l-6 md-6">
+                    <div 
+                    Class="homePage-container__companySpecialB"
+                    style="
+                        background-image: url('../public/img/imgPexel/pexels-andrew-neel-2312369.jpg');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        color: white;
+                    ">
+                        <h1>Flexible projects</h1>
+                        <p>
+                            We completed so many genres of projects from social network, 
+                            blogs, businesses to shopping during last 10 years. 
+                        </p>
+                        <a href="#" class="homePage-slider__button"   >
+                            find more
+                        </a>
+                    </div>
+                </div>
+                <div class="col l-6 md-6">
+                    <div 
+                    class="homePage-container__companySpecial"
+                    style="
+                        background-image: url('../public/img/imgPexel/pexels-ola-dapo-3345882.jpg');
+                        background-position: top;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        color: white;
+                    "
+                    >
+                        <h1>Multiple env</h1>
+                        <p>
+                            From web, app to portable device like laptop, smartphone
+                            tablet, or even TV we will get it done !
+                        </p>
+                        <a href="#" class="homePage-slider__button">
+                            find more
+                        </a>
+                    </div>
+                </div>
+                <div class="col l-6 md-6">
+                    <div class="homePage-container__companySpecialB" 
+                    style="
+                        background-image: url('../public/img/imgPexel/pexels-fauxels-3184303.jpg');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        color: white;
+                    ">
+                        <h1>Support national & international</h1>
+                        <p>
+                            We always wellcome to any argnecies from 
+                            national to international cooperating with us
+                        </p>
+                        <a href="#" class="homePage-slider__button">
+                            find more
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            if (scroll > 0) {
+                $("#homePage-header").addClass("active");
+            }
+            else {
+                $("#homePage-header").removeClass("active");
+            }
+        });
+    </script>
+
 </body>
+
 </html>
