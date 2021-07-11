@@ -1,0 +1,423 @@
+
+.bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+}
+
+.bar a:hover {
+    color: var(--color-greenB);
+}
+
+.homePage-header__brand {
+    font-family: var(--fontBrand);
+    font-size: var(--fontSize__h2);
+    font-weight: var(--fontWeight__slight);
+}
+
+
+.homePage-header__bar-component {
+    text-decoration: none;
+    color: var(--color-gray);
+    padding: 0 var(--icon-md);
+    font-size: var(--fontSize__normal);
+}
+
+.homePage-header__bar-component + .homePage-header__bar-component {
+    margin-left: var(--mp-0-75);
+}
+
+.homePage-header__account {
+    position: relative;
+}
+
+.homePage-header__account a {
+    text-decoration: none;
+    color: var(--color-gray);
+    padding: 0 var(--icon-md);
+    font-size: var(--fontSize__normal);
+}
+
+.homePage-header__account a:first-child {
+    position: absolute;
+    background-color: rgb(94, 94, 94);
+    left: -50%;
+    top: -47.5%;
+    padding: var(--btn-s);
+    border-radius: 5px;
+    color: rgb(241, 232, 215);
+}
+
+.homePage-header__account a:first-child:hover {
+    color: white;
+}
+
+.homePage-header__account a:last-child {
+    background-color: rgb(185, 184, 184);
+    padding: var(--btn-s);
+    border-radius: 5px;
+    color: silver;
+
+}
+
+.homePage-header__account a:last-child:hover {
+    color: white;
+    position: relative;
+    z-index: 11;
+}
+
+/* slider */
+
+#homePage-slider {
+    padding: var(--mp-3) 0;
+    display: block;
+    position: relative;
+    z-index: 1;
+    min-height: calc(100% - 3.5rem);
+
+}
+
+.homePage-slider__content {
+    height: 23rem;
+    display: flex;
+    align-items: center;
+}
+
+.homePage-slider__info {
+    padding: var(--mp-1) 0;
+}
+
+.homePage-slider__heading {
+    font-size: var(--fontSize__bigger);
+    font-weight: 900;
+    color: var(--color-Black);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../img/imgPexel/pexels-belle-co-847393.jpg");
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.homePage-slider__text {
+    padding-top: var(--mp-2);
+    color: var(--color-gray);
+}
+
+.homePage-slider__button {
+    margin-top: var(--mp-3);
+    display: inline-block;
+    text-decoration: none;
+    padding: var(--btn-lg);
+    border: 1px solid var(--color-black);
+    color: var(--color-black);
+    border-radius: 4px;
+    transition: backgound-color .6s, color .6s;
+}
+
+.homePage-slider__button:hover {
+    background-color: var(--color-black);
+    color: white;
+}
+
+.homePage-slider__show-project {
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.img-1 {
+    background-position: center;
+    background-image:url("../img/imgPexel/homePage-img1.jpg");
+    background-size: cover;
+    height: 220px;
+    width: 320px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 3px 6px rgba(207, 207, 207, 0.9);
+    border-radius: 3px;
+    z-index: 2;
+    filter: brightness(90%);
+}
+
+.img-2 {
+    background-position: center;
+    background-image:url("../img/imgPexel/homePage-img2.jpg");
+    background-size: cover;
+    height: 220px;
+    width: 320px;
+    position: absolute;
+    right: 0;
+    box-shadow: 2px 3px 6px rgba(207, 207, 207, 0.9);
+    border-radius: 3px;
+    z-index: 1;
+    filter: brightness(90%);
+}
+
+.img-3 {
+    background-position: center;
+    background-image:url("../img/imgPexel/homePage-img3.jpg");
+    background-size: cover;
+    height: 220px;
+    width: 320px;
+    position: absolute;
+    bottom: 8%;
+    box-shadow: 2px 3px 6px rgba(207, 207, 207, 0.9);
+    border-radius: 3px;
+    opacity: 1;
+    z-index: 3;
+}
+
+.homePage-slider__show-project * {
+    transition: z-index 1s;
+    transition: filter 2s;
+}
+
+.homePage-slider__show-project *:hover {
+    z-index: 4;
+    filter: brightness(100%);
+}
+
+/* video */
+
+#myVideo {
+    width: 100%;
+    filter: brightness(30%);
+    height: 120%;
+}    
+
+#introduction {
+    display: flex;
+    justify-content: center;
+    color: var(--color-white);
+    position: absolute; 
+    z-index: 3;
+    top: 0;
+    right: 0;
+    width: 80%;
+    padding: var(--mp-2);
+    padding-left: 10%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#introduction h2 {
+    display: block;
+    margin: var(--mp-1) var(--mp-0-5);
+    margin-top: var(--mp-4);
+}
+
+#introduction p {
+    font-size: var(--fontSize__h2);
+    padding: var(--mp-2) var(--mp-0-5);
+    font-weight: var(--fontWeight__slight);
+    line-height: 2.3rem;
+    letter-spacing: .1rem;
+    word-spacing: .5rem;
+}
+
+.after-slider__icon {
+    margin: 0 auto;
+    margin-top: var(--mp-2);
+    border-radius: 50%;
+    background-image: url("../img/pngfind.com-steve-jobs-png-650873.png");
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* containter */
+#homePage-container {
+    width: 100%;
+    margin-bottom: 10rem;
+    position: relative;
+}
+
+#option-component {
+    margin: 3rem auto;
+    width: 100%;
+}
+
+#homePage-container p {
+    font-family: var(--fontFamilyT);
+    margin: var(--mp-2) 0;
+    font-size: var(--fontSize__h3);
+}
+
+#homePage-container h2 {
+    display: inline-block;
+    font-family: 'Dawning of a New Day', cursive;
+    font-size: 2rem;
+}
+
+#option-component .option {
+    box-shadow: 2px 2px 3px rgb(173, 168, 168, .2);
+    margin: 4px auto;
+}
+
+.homePage-container__companySpecial,
+.homePage-container__companySpecialB {
+    width: 80%;
+    margin: 0 auto;
+    background-image: linear-gradient(to right, rgba(142, 142, 142) 30%, #fff);
+    margin-bottom: var(--mp-4);
+    border-radius: 4px;
+    box-shadow: 4px 4px 8px rgba(175, 175, 175, 0.795);
+}
+
+.homePage-container__companySpecial,
+.homePage-container__companySpecialB  {
+    padding: var(--mp-1);
+}
+
+
+.reveal {
+    position: relative;
+    transition: all;
+    transition-duration: 2s;
+    transition-timing-function: ease;
+    opacity: 0;
+}
+
+.reveal * {
+    padding: var(--mp-0-5) var(--mp-1);
+}
+
+.homepage-container__title-companySpecial.reveal {
+    transform: translateY(-80px);
+    opacity: 0;
+}
+
+.homepage-container__title-companySpecial.reveal.reveal-ex {
+    transform: translateY(-20px);
+    opacity: 1;
+}
+
+.homePage-container__companySpecial.reveal {
+    transform: translateX(-150px);
+}
+
+.homePage-container__companySpecialB.reveal {
+    transform: translateX(150px) translateY(30%);
+}
+
+.homePage-container__companySpecial.reveal.reveal-ex {
+    opacity: 1;
+    transform: translateX(10px);
+}
+
+.homePage-container__companySpecialB.reveal.reveal-ex {
+    opacity: 1;
+    transform: translateX(-10px) translateY(30%);
+}
+
+
+#homePage__footer {
+    background-color: #262626;
+    color: white;
+    margin-top: 5rem;
+    padding: var(--mp-3) var(--mp-1);
+    font-family: var(--fontFamily);
+}
+
+.homePage__footer-component-link {
+    text-decoration: none;
+    font-size: var(--fontSize__small);
+    display: flex;
+    color: silver;
+    align-items: center;
+}
+
+.homePage__footer-component-link i {
+    font-size: var(--fontSize__normal);
+    margin: var(--mp-0-5);
+}
+
+.homePage__footer-component.last {
+    border: 1px solid silver;
+    padding: var(--mp-1-5);
+}
+
+.homePage__footer-component.last > ul {
+
+}
+
+.logo-homePage {
+    font-size: 7rem;
+    line-height: 8.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .img-1, .img-3, .img-2 {
+        width: 240px;
+        width: 140px;
+    }
+    
+    #introduction .after-slider__icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 739px) {
+    .slider__show-project {
+        margin-top: var(--mp-4);
+    }
+}
+
+@media screen and (min-width: 550px) and (max-width: 900px)  {
+    #introduction {
+        width: 80%;
+        padding: var(--mp-1);
+    }
+
+
+    #introduction p, #introduction h2 {
+        line-height: initial;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 549px) {
+    #introduction {
+        width: 100%;
+        padding: var(--mp-1);
+    }
+
+    #introduction .after-slider__icon {
+        display: none;
+    }
+
+    #introduction p {
+        line-height: initial;
+    }
+
+    #introduction h2 {
+        margin: var(--mp-1);
+    }
+
+    .homePage-container__companySpecialB.reveal {
+        transform: translateX(150px);
+    }
+    
+    
+    .homePage-container__companySpecialB.reveal.reveal-ex {
+        opacity: 1;
+        transform: translateX(50px);
+    }
+    
+
+}
+
+
+  
+
+
+
+

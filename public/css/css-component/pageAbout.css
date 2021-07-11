@@ -1,0 +1,80 @@
+.aboutPage-slider__body {
+    margin: var(--mp-3);
+    width: 100%;
+    display: flex;
+}
+
+.aboutPage-slider__bg {
+    background-image: url('../img/imgPexel/pexels-andrea-piacquadio-839586.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.aboutPage-slider__body-title {
+    width: 50%;
+    margin: 0;
+    height: 75vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.aboutPage-slider__body-title.A {
+    background-color: black;
+}
+
+.text-flow {
+    font-size: var(--fontSize__bigger);
+    padding-top: var(--mp-1-5);
+}
+
+.text-flow ~ ul li {
+    list-style: none;
+    font-size: var(--fontSize__h2);
+}
+
+.A .text-flow {
+    color: #fff;
+    
+    animation: floatTextA 2s ease forwards;
+}
+
+.B .text-flow {
+    color: black;
+    
+    animation: floatTextB 2s ease forwards;
+}
+
+
+.aboutPage-slider__component-extend {
+    margin-top: var(--mp-3);
+
+}
+
+.aboutPage-slider__content {
+    border-radius: 3px;
+    box-shadow: 2px 2px 8px rgb(173, 168, 168,.2);
+    padding: var(--mp-1);
+}
+
+@keyframes floatTextA {
+    0% {
+        opacity: 0;
+        transform: translateX(110%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(24%);
+    }
+}
+
+@keyframes floatTextB {
+    0% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-76%);
+    }
+}
+

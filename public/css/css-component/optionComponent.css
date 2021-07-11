@@ -97,7 +97,7 @@
     right: 15%;
     cursor: pointer;
     transform-origin: 50% 50%;
-    transition: transform .25s linear;
+    transition: transform .3s ease;
     z-index: 0;
 }
 
@@ -144,6 +144,7 @@
 }
 
 
+
 .option__container-body__btn:hover ~ .iconOption {
     transform: translateX(2rem);
 }
@@ -158,7 +159,7 @@
     bottom: 25%;
     left: 17%;
     z-index: 4;
-    transition: transform .4s .26s ease-out;
+    transition: transform .8s ease;
 }
 
 @media screen and (max-width: 550px) {
