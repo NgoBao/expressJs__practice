@@ -1,0 +1,69 @@
+
+.pageContact-slider {
+    background-image: url('../img/imgPexel/pexels-stefan-stefancik-91227.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 40vh;
+
+}
+
+.pageContact-slider__content {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageContact-slider__content p {
+    color: var(--color-white);
+    text-align: center;
+    font-size: var(--fontSize__bigger);
+    font-family: var(--fontFamilyT);
+}
+
+.pageContact-body {
+    background-color: rgb(235, 235, 235);
+    padding-bottom: 24px;
+    transform: translateY(-10%);
+}
+
+
+.pageContact-body__component {
+    margin: 24px 12px;
+    padding: var(--mp-1);
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    min-height: 27vh;
+    box-shadow: 2px 2px 8px rgb(173, 168, 168,.5);
+}   
+
+.pageContact-body__component-icon {
+    margin: var(--mp-1);
+    font-size: var(--fontSize__big);
+    color: slateblue;
+}
+.pageContact-body__component-content h2 {
+    color: tomato;
+}
+
+.pageContact-body__component-content h1, h3 {
+    font-family: var(--fontFamilyT);
+}
+
+.pageContact-body__component-content a {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: var(--mp-0-5);
+    padding: var(--btn-md);
+    border: 1px solid #262626;
+}
+
+.pageContact-body__component-content input, select {
+    margin: var(--mp-1);
+    padding: var(--mp-1);
+    width: 80%;
+    font-size: var(--fontSize__normal);
+}

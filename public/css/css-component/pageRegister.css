@@ -1,0 +1,54 @@
+
+
+
+#pageRegister {
+    padding-top: var(--mp-2);
+    
+}
+
+.pageRegister__title {
+    background-color: rgb(209, 207, 209);
+    background-image: url("../img/imgPexel/pexels-nappy-936119.jpg");
+    height: 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: luminosity;
+    color: ivory;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageRegister__body {
+    margin-top: var(--mp-1);
+    padding: var(--mp-1);
+
+}
+
+.pageRegister__body h2 {
+    margin-bottom: var(--mp-1);
+    margin-left: var(--mp-0-75);
+    color: var(--color-gray);
+}
+
+.pageRegister__body input {
+    margin: var(--mp-0-75) 4.15%;
+    padding: var(--mp-0-75);
+    font-size: var(--fontSize__normal);
+}
+
+.pageRegister__body input[type="submit"] {
+    padding: var(--btn-lg);
+    margin: 0 auto;
+    transition: backgound-color .6s, color .6s;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.pageRegister__body input[type="submit"]:hover {
+    color: white;
+    background-color: var(--color-black);
+}
+
+
