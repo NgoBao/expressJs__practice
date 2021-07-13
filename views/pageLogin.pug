@@ -1,3 +1,13 @@
 extends pageFormat.pug 
 
 block accountLogin
+    #pageLogin
+        .grid.wide
+            .row
+                .col.l-10.l-o-1
+                    .pageLogin__component
+                        h1 LOGIN
+                        form(action='#' method='POST')
+                            input#userEmail(type='email' name='userEmail' placeholder='Email')
+                            input#userPassword(type='password' name='userPassword' placeholder='Password')
+                            input(type='submit' value='submit')

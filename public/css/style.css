@@ -9,6 +9,10 @@
 @import url('./css-component/pageAbout.css');
 @import url('./css-component/pageContact.css');
 @import url('./css-component/pageRegister.css');
+@import url('./css-component/pageLogin.css');
+@import url('./css-component/pageProduct.css');
+
+
 
 :root {
     --fontFamily: 'Roboto', sans-serif;
@@ -38,8 +42,6 @@ body {
 #homePage-header.active {
     box-shadow: 0 1px 5px rgb(173, 168, 168,.2);
 }
-
-
 
 
 

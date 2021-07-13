@@ -1,0 +1,140 @@
+
+
+.pageProduct__slider {
+    height: 30vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../img/imgPexel/pexels-cottonbro-7505563.jpg");
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageProduct__slider h2 {
+    font-size: var(--fontSize__big);
+}
+
+.pageProduct__category {
+    background-color: var(--color-white);
+    padding: var(--mp-1);
+    margin-top: var(--mp-2);
+    box-shadow: 4px 4px 8px rgba(173, 168, 168,.4);
+}
+
+.pageProduct__category div {
+    border-bottom: 1px solid var(--color-black);
+    padding: var(--mp-1);
+    font-size: 1.2rem;
+}
+
+.pageProduct__category a {
+    padding-top: var(--mp-1-5);
+    display: block;
+    padding-left: var(--mp-2);
+    transition: transform .4s ease, opacity .4s ease;
+    opacity: .6;
+}
+
+.pageProduct__category a:hover {
+    transform: translateX(10%);
+    opacity: 1;
+}
+
+.pageProduct__list h1 {
+    font-size: var(--fontSize__bigger);
+    text-align: center;
+    font-family: var(--fontFamilyT);
+    margin: var(--mp-1-5) 0;
+}
+
+.cardProduct {
+    height: 300px;
+    box-shadow: 3px 3px 7px rgba(173, 168, 168,.3);
+    transition: transform .2s ease;
+    margin-bottom: var(--mp-2);
+}
+
+.cardProduct__img {
+    height: 70%;
+    width: 100%;
+
+}
+
+.cardProduct__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardProduct__title {
+    color: var(--color-black);
+    padding: 0 var(--mp-1);
+    padding-top: var(--mp-0-5);
+    padding-bottom: var(--mp-0-5);
+    position: relative;
+}
+
+.cardProduct__title::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 3px solid black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .8s;
+}
+
+.cardProduct:hover {
+    transform: scale(105%);
+}
+
+.cardProduct:hover .cardProduct__title::after {
+    transform: scaleX(90%);
+}
+
+.cardProduct__body {
+    padding: var(--mp-1);
+    padding-top: var(--mp-0-5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.cardProduct__body h5 {
+    opacity: .6;
+}
+ 
+
+
+.pageProduct__pagination {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pageProduct__pagination a {
+    display: inline-block;
+    padding: var(--btn-s);
+    text-decoration: none;
+    color: var(--color-black);
+    transition: background-color .4s ease;
+}
+
+.pageProduct__pagination a:hover {
+    background-color: rgba(173, 168, 168,.4);
+}
+
+.pageProduct__pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.pageProduct__pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}

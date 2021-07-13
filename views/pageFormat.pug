@@ -11,14 +11,64 @@ head
     link(rel='stylesheet' href='/css/style.css')
     //jquery
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(src="http://localhost:3000/JS.inpage/JSFormat.js") 
 
 body 
+    #homePage-header
+        .grid.wide
+            .row
+                .col.l-12.md-12.sm-0
+                    .bar
+                        .homePage-header__brand RockPikin
+                        .homePage-header__bar
+                            a.homePage-header__bar-component(href='/home') Home
+                            a.homePage-header__bar-component(href='/about') About
+                            a.homePage-header__bar-component(href='/contact') Contact
+                            a.homePage-header__bar-component(href='/product') Product
+                            a.homePage-header__bar-component(href='/account') Account
+                        .homePage-header__account
+                            a(href='/account/login') Login
+                            a(href='/account/register') Sign Up
+
     block homePage 
     block contact 
     block product 
     block support 
     block about
     block accountLogin 
-    block accountLogout 
+    block accountRegister 
     block accountInfo 
     block notFound404
+
+    footer#homePage__footer
+        .grid
+            .row
+                .col.l-3.l-o-1.md-4.sm-6
+                    .homePage__footer-component
+                        h2
+                            | Rock
+                            | Pikin
+                        i.fab.fa-slack.logo-homePage
+                .col.l-4.md-4.sm-6
+                    .homePage__footer-component
+                        h3
+                            | Contact
+                        a.homePage__footer-component-link(href='')
+                            i.fab.fa-facebook
+                            |                             https://facebook.com
+                        a.homePage__footer-component-link(href='')
+                            i.fab.fa-instagram
+                            |                             https://intargram.com
+                        a.homePage__footer-component-link(href='')
+                            i.fas.fa-at
+                            |                             https://gmail.com
+                .col.l-3.md-4.sm-6.sm-o-3
+                    .homePage__footer-component.last
+                        h3
+                            | Legal
+                        ul
+                            li Permission of authority
+                            li wWw Acception
+                            li Stakoverflow 
+        h5(style='text-align: center; margin-top: 1rem; font-family: var(--fontFamilyT);')
+            | @ let your farith be bigger than your fear - RockPikin

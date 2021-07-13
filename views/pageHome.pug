@@ -1,3 +1,152 @@
 extends pageFormat.pug 
 
 block homePage
+    #homePage
+        #homePage-slider
+            .grid.wide
+                .row
+                    .col.l-7.md-7.sm-10.sm-o-1
+                        .homePage-slider__content
+                            div
+                                h2.homePage-slider__info Do you need a 
+                                h1.homePage-slider__heading WEB DESIGN ? 
+                                p.homePage-slider__text
+                                    | ckeck out our options and feature, then got inspiration
+                                a.homePage-slider__button(href='#')
+                                    | find more
+                    .col.l-5.md-5.sm-8.sm-o-2
+                        .homePage-slider__show-project
+                            .img-1
+                            .img-2
+                            .img-3
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        div(style='position:relative;')
+            video#myVideo(autoplay='' muted='' loop='')
+                source(src='/video/istockphoto-498510508-640_adpp_is.mp4' type='video/mp4')
+            #introduction
+                div
+                    h2 Let&apos;s take a look
+                    p
+                    | With 5 years experience in web design sector,
+                    | we guarantee with our customer will got good
+                    | products which are apppropriately with their budget
+                    .after-slider__icon
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        #homePage-container
+            .grid.wide
+                .row
+                    .col.l-4.l-o-1.md-10.md-o-1.sm-12(style='padding: 4rem 0;')
+                        h4(style='font-weight: 500;')
+                            | Do you have any question about our price?
+                        p(style='color: #262626;')
+                            | currently, we have two stardard package including normal,
+                            | premium that one for business and the other for personal purposes.
+                            | However, these product will also sastisfy for your about their own good quality
+                        h2
+                            | RockPikin
+                    .col.l-7.md-12.sm-10.sm-o-1
+                        #option-component
+                            .option.aa
+                                .option__container
+                                    .option__container-title
+                                        | Common
+                                    .option__container-body
+                                        .option__container-body__btn
+                                        span More support
+                                        i.fas.fa-arrow-right.iconOption
+                            .option.bb
+                                .option__container
+                                    .option__container-title
+                                        | Premium
+                                    .option__container-body
+                                        .option__container-body__btn
+                                        span More qualiti
+                                        i.fas.fa-arrow-right.iconOption
+                .row(style='margin-top: 16rem;')
+                    .col.l-12.md-12.sm-12
+                        h2.homepage-container__title-companySpecial.reveal(style='text-align: center; display: block; font-size: var(--fontSize__big);')
+                            | And we have ?
+                    .col.l-6.md-6.sm-10.sm-1
+                        .homePage-container__companySpecial.reveal(style="\
+                        background-image: url('../../img/imgPexel/pexels-cottonbro-3205570.jpg');\
+                        background-position: center;\
+                        background-repeat: no-repeat;\
+                        background-size: cover;\
+                        color: white;\
+                        ")
+                            h1 Skills
+                            p
+                                | possessing a lot of employers with diversified experience
+                                | and keep pace with the developement of the world
+                            a.homePage-slider__button(href='#' style='margin: var(--mp-1-5) var(--mp-1);')
+                                | find more
+                    .col.l-6.md-6.sm-10.sm-1
+                        .homePage-container__companySpecialB.reveal(style="\
+                        background-image: url('../../img/imgPexel/pexels-andrew-neel-2312369.jpg');\
+                        background-position: center;\
+                        background-repeat: no-repeat;\
+                        background-size: cover;\
+                        color: white;\
+                        ")
+                            h1 Flexible projects
+                            p
+                                | We completed so many genres of projects from social network,
+                                | blogs, businesses to shopping during last 10 years.
+                            a.homePage-slider__button(href='#' style='margin: var(--mp-1-5) var(--mp-1);')
+                                | find more
+                    .col.l-6.md-6.sm-10.sm-1
+                        .homePage-container__companySpecial.reveal(style="\
+                        background-image: url('../../img/imgPexel/pexels-ola-dapo-3345882.jpg');\
+                        background-position: top;\
+                        background-repeat: no-repeat;\
+                        background-size: cover;\
+                        color: white;\
+                        ")
+                            h1 Multiple env
+                            p
+                                | From web, app to portable device like laptop, smartphone
+                                | tablet, or even TV we will get it done !
+                            a.homePage-slider__button(href='#' style='margin: var(--mp-1-5) var(--mp-1);')
+                                | find more
+                    .col.l-6.md-6.sm-10.sm-1
+                        .homePage-container__companySpecialB.reveal(style="\
+                        background-image: url('../../img/imgPexel/pexels-fauxels-3184303.jpg');\
+                        background-position: center;\
+                        background-repeat: no-repeat;\
+                        background-size: cover;\
+                        color: white;\
+                        ")
+                            h1 Support national &amp; international
+                            p
+                                | We always wellcome to any argnecies from
+                                | national to international cooperating with us
+                            a.homePage-slider__button(href='#' style='margin: var(--mp-1-5) var(--mp-1);')
+                                | find more
+        h1(style="font-family: 'Dawning of a New Day', cursive; text-align: center; font-size: 3rem;")
+            | Let&apos;s take us for your dream now!

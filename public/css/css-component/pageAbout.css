@@ -5,7 +5,7 @@
 }
 
 .aboutPage-slider__bg {
-    background-image: url('../img/imgPexel/pexels-andrea-piacquadio-839586.jpg');
+    background-image: url('../../img/imgPexel/pexels-andrea-piacquadio-839586.jpg');
     background-position: center;
     background-size: cover;
 }

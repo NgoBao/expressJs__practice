@@ -112,14 +112,14 @@
     transform-origin: .5rem 2rem;
 }
 
-.a {
+.aa {
     background: url('../../img/imgPexel/optionComponent1.jpg'),rgba(109, 109, 109, 0.849);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.b {
+.bb {
     background-image: url('../../img/imgPexel/optionComponent2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -127,11 +127,11 @@
 }
 
 
-.b .option__container-body__btn {
+.bb .option__container-body__btn {
     background-color: rgb(252, 165, 4, .6); 
 }
 
-.a .option__container-body__btn {
+.aa .option__container-body__btn {
     background-color: rgba(37, 82, 231, .6);
 }
 

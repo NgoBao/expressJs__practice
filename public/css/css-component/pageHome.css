@@ -96,7 +96,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../img/imgPexel/pexels-belle-co-847393.jpg");
+    background-image: url("../../img/imgPexel/pexels-belle-co-847393.jpg");
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
@@ -132,7 +132,7 @@
 
 .img-1 {
     background-position: center;
-    background-image:url("../img/imgPexel/homePage-img1.jpg");
+    background-image:url("../../img/imgPexel/homePage-img1.jpg");
     background-size: cover;
     height: 220px;
     width: 320px;
@@ -147,7 +147,7 @@
 
 .img-2 {
     background-position: center;
-    background-image:url("../img/imgPexel/homePage-img2.jpg");
+    background-image:url("../../img/imgPexel/homePage-img2.jpg");
     background-size: cover;
     height: 220px;
     width: 320px;
@@ -161,7 +161,7 @@
 
 .img-3 {
     background-position: center;
-    background-image:url("../img/imgPexel/homePage-img3.jpg");
+    background-image:url("../../img/imgPexel/homePage-img3.jpg");
     background-size: cover;
     height: 220px;
     width: 320px;
@@ -225,7 +225,7 @@
     margin: 0 auto;
     margin-top: var(--mp-2);
     border-radius: 50%;
-    background-image: url("../img/pngfind.com-steve-jobs-png-650873.png");
+    background-image: url("../../img/pngfind.com-steve-jobs-png-650873.png");
     height: 200px;
     width: 200px;
     background-size: cover;

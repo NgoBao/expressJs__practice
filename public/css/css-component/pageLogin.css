@@ -1,0 +1,40 @@
+#pageLogin {
+    background-image: url('../../img/imgPexel/pexels-kei-scampa-4894419.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.pageLogin__component {
+    height: 70vh;
+
+}
+
+.pageLogin__component h1 {
+    color: white;
+}
+
+.pageLogin__component input {
+    width: 100%;
+    padding: var(--mp-1);
+    margin-top: var(--mp-1);
+    font-size: var(--fontSize__normal);
+}
+
+.pageLogin__component input[type="submit"] {
+    border-radius: 3px;
+    color: black;
+    background-color: white;
+    border: none;
+    transition: background-color .6s, color .6s;
+}
+
+.pageLogin__component input[type="submit"]:hover {
+    background-color: black;
+    color: white;
+}

@@ -1,3 +1,57 @@
 extends pageFormat.pug 
 
 block contact
+    #pageContact
+        .pageContact-slider
+            .grid.wide
+                .row
+                    .col.l-3
+                        .pageContact-slider__content
+                            p Contact
+                    .col.l-3.l-o-6
+                        .pageContact-slider__content
+                            p Us
+        div
+            .grid.wide.pageContact-body.no-gutters
+                .row
+                    .col.l-4.l-o-1.md-10.md-o-1.sm-10.sm-o-1
+                        .pageContact-body__component
+                            .fas.fa-phone-alt.pageContact-body__component-icon
+                            .pageContact-body__component-content
+                                h3 Call us directly at
+                                h2 +039 0923 4920
+                        .pageContact-body__component
+                            .fas.fa-comment-dots.pageContact-body__component-icon
+                            .pageContact-body__component-content
+                                h3 Chat with us at pangage
+                                a(href='#')
+                                    | Chat now
+                    .col.l-6.md-10.md-o-1.sm-10.sm-o-1
+                        .pageContact-body__component
+                            .pageContact-body__component-content
+                                h1 Book A Meeting
+                                p
+                                    | To schedule time to speak with one of our leader and The Team
+                                    | for commercial purposes or any support sponsor
+                                form(action='#' method='post')
+                                    .grid
+                                        .row
+                                            .col.l-6
+                                                input#userFirstName(type='text' name='userFirstName' placeholder='First Name' maxlength='30')
+                                            .col.l-6
+                                                input#userLastName(type='text' name='userLastName' placeholder='Last Name' maxlength='30')
+                                        .row
+                                            .col.l-6
+                                                input#phone(type='text' name='phone' placeholder='Your Phone' maxlength='30')
+                                                |                                                 &gt;
+                                            .col.l-6
+                                                input#userEmail(type='email' name='userEmail' placeholder='Your Email' maxlength='150')
+                                        .row
+                                            .col.l-6
+                                                select#meetingPurposes(name='meetingPurposes')
+                                                    option(value='commercial') Commercial
+                                                    option(value='support') Support
+                                                    option(value='report') Report
+                                                    option(value='sponsor') Sponsor
+                                            .col.l-6
+                                                input#message(type='text' name='message' placeholder='Your message' maxlength='500')
