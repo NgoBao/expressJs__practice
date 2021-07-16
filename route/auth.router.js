@@ -9,5 +9,8 @@ authRouter.get('/login', (req, res) => {
     res.render('pageLogin', {})
 })
 
+// post login with 
+// post sign up then login
+
 
 module.exports = authRouter

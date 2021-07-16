@@ -1,7 +1,11 @@
+require('dotenv').config()
 const express = require('express')
+
 const app = express()
 
+
 const bodyParser = require('body-parser')
+const db = require('./db')
 const port = 3000
 
 const pageError = require('./middleWare/pageError.middleWare')
@@ -10,6 +14,7 @@ const contactRouter = require('./route/contact.router')
 const homeRouter = require('./route/home.router')
 const authRouter = require('./route/auth.router')
 const productRouter = require('./route/product.router')
+const pageErrorMiddleWare = require('./middleWare/pageError.middleWare')
 
 
 app.use(bodyParser.json())
@@ -21,8 +26,8 @@ app.set('view engine', 'pug')
 
 // test
 app.get('/', (req, res) => {
-    res.send("alginwifni")
-})
+    res.send("ngo chi bao")
+})     
 //home page route
 app.use('/home', homeRouter)
 //about page route
