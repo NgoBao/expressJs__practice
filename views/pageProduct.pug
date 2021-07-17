@@ -21,121 +21,22 @@ block product
                         h1
                             | Our Design
                         .grid
-                            .row
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
-                                .col.l-4.md-4.sm-10.sm-o-1
-                                    .cardProduct
-                                        .cardProduct__img
-                                            img(src='../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
-                                        .cardProduct__title
-                                            | oceannn love
-                                        .cardProduct__body
-                                            h4 Price: 189$
-                                            h5 Sold: 13
+                            ul.row
+                                each product in products 
+                                    li.col.l-4.md-4.sm-10.sm-o-1
+                                        .cardProduct
+                                            .cardProduct__img
+                                                img(src='/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
+                                            .cardProduct__title
+                                                | #{product.title}
+                                            .cardProduct__body
+                                                h4 Price: #{product.price}$
+                                                h5 Sold: #{product.sold}
                     .pageProduct__pagination
-                        a(href='#')
+                        a(href= '/product/' + arrPagination[0])
                             i.fas.fa-chevron-left
-                        a(href='#') 1
-                        a(href='#') 2
-                        a(href='#') 3
-                        a(href='#')
-                            i.fas.fa-angle-right
-
+                        a(href= '/product/' + arrPagination[0]) #{arrPagination[0]}
+                        a(href= '/product/' + arrPagination[1]) #{arrPagination[1]}
+                        a(href= '/product/' + arrPagination[2]) #{arrPagination[2]}
+                        a(href= '/product/' + arrPagination[2])
+                            i.fas.fa-angle-right  

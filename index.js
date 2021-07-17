@@ -9,6 +9,7 @@ const db = require('./db')
 const port = 3000
 
 const pageError = require('./middleWare/pageError.middleWare')
+const adminRouter = require('./route/admin.router')
 const aboutRouter = require('./route/about.router')
 const contactRouter = require('./route/contact.router')
 const homeRouter = require('./route/home.router')
@@ -28,6 +29,8 @@ app.set('view engine', 'pug')
 app.get('/', (req, res) => {
     res.send("ngo chi bao")
 })     
+//admin page
+app.use('/admin', adminRouter)
 //home page route
 app.use('/home', homeRouter)
 //about page route
