@@ -35,10 +35,18 @@
     padding-left: var(--mp-2);
     transition: transform .4s ease, opacity .4s ease;
     opacity: .6;
+    text-decoration: none;
+    color: var(--color-black);
 }
 
 .pageProduct__category a:hover {
     transform: translateX(10%);
+    opacity: 1;
+}
+
+.pageProduct__category a.active {
+    transform: translateX(10%);
+    color: rgb(62, 125, 243);
     opacity: 1;
 }
 

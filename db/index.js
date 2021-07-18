@@ -14,7 +14,7 @@ const pool = new Pool({
                         console.log(err)
                 });
 
-    await   pool.query('CREATE TABLE IF NOT EXISTS products ( product_id VARCHAR(40) NOT NULL PRIMARY KEY ,title VARCHAR(30) NOT NULL, price NUMERIC NOT NULL, sold INT DEFAULT 0)')
+    await   pool.query('CREATE TABLE IF NOT EXISTS products ( product_id VARCHAR(40) NOT NULL PRIMARY KEY ,title VARCHAR(30) NOT NULL, price NUMERIC NOT NULL, type VARCHAR(20), sold INT DEFAULT 0)')
                 .catch(err => {
                         console.log(err)
                 });

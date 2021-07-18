@@ -617,11 +617,11 @@
                             ></i>
                             Category
                         </div>
-                        <a>Commercial</a>
-                        <a>Blog</a>
-                        <a>Shop</a>
-                        <a>App</a>
-                        <a>System (w)</a>
+                        <a class="pageProduct__category-link">Commercial</a>
+                        <a class="pageProduct__category-link">Blog</a>
+                        <a class="pageProduct__category-link">Shop</a>
+                        <a class="pageProduct__category-link">App</a>
+                        <a class="pageProduct__category-link">System (w)</a>
                     </div>                    
                 </div>
 
@@ -898,7 +898,6 @@
 
         function revealEle() {
             var elementNeeds = document.querySelectorAll(".reveal")
-            console.log(elementNeeds)
             for (var index = 0; index < elementNeeds.length; index++) {
 
 
@@ -916,6 +915,23 @@
 
 
         }
+        
+        function pullLink(e) {
+            product__categoryLink.forEach(element => {
+                if (element.classList.contains('active')) {
+                    element.classList.remove('active')
+                }
+            })
+            let val = e.target
+            val.classList.add('active')
+        }
+
+        let product__categoryLink = document.querySelectorAll('.pageProduct__category-link')
+        product__categoryLink.forEach(element => {
+            element.addEventListener('click', pullLink)
+            console.log(element)
+        })
+    
     </script>
 
 </body>

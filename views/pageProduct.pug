@@ -1,6 +1,7 @@
 extends pageFormat.pug 
 
 block product 
+
     #pageProduct
         .pageProduct__slider
             h2 We&apos;re here
@@ -11,11 +12,13 @@ block product
                         div
                             i.fas.fa-stream(style='padding-right: var(--mp-1);')
                             |                             Category
-                        a Commercial
-                        a Blog
-                        a Shop
-                        a App
-                        a System (w)
+                        
+                        a(href='/product/1', class= '' + type.all) All 
+                        a(href='/product/categorized/commercial/1', class= '' +type.commercial ) Commercial
+                        a(href='/product/categorized/blog/1', class= '' + type.blog) Blog
+                        a(href='/product/categorized/shop/1', class= '' + type.shop) Shop
+                        a(href='/product/categorized/app/1', class= '' + type.app) App
+                        a(href='/product/categorized/system/1', class= '' + type.system) System (w)
                 .col.l-9.md-12.sm-12
                     .pageProduct__list
                         h1
@@ -35,8 +38,9 @@ block product
                     .pageProduct__pagination
                         a(href= '/product/' + arrPagination[0])
                             i.fas.fa-chevron-left
-                        a(href= '/product/' + arrPagination[0]) #{arrPagination[0]}
-                        a(href= '/product/' + arrPagination[1]) #{arrPagination[1]}
-                        a(href= '/product/' + arrPagination[2]) #{arrPagination[2]}
+                        a(href= '/product/' + arrPagination[0]) #{arrPagination[0][arrPagination[0].length-1]}
+                        a(href= '/product/' + arrPagination[1]) #{arrPagination[1][arrPagination[1].length-1]}
+                        a(href= '/product/' + arrPagination[2]) #{arrPagination[2][arrPagination[2].length-1]}
                         a(href= '/product/' + arrPagination[2])
                             i.fas.fa-angle-right  
+    

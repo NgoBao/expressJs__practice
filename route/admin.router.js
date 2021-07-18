@@ -1,4 +1,4 @@
-const { uuid } = require('uuidv4');
+const { v4: uuid } = require('uuid');
 const db = require('../db')
 var express = require('express');
 var adminRouter = express.Router();
@@ -8,10 +8,15 @@ var adminRouter = express.Router();
 
 
 adminRouter.post('/createProduct', async (req, res) => {
-    console.log(uuid())
     let product_id = uuid();
-    await    db
-                .query('INSERT INTO products (product_id, title, price) VALUES ($1, $2, $3)', [product_id, req.body.title, req.body.price])
+    console.log(product_id)
+    //need to lowercase type before to save
+    req.body.type = req.body.type.toLowerCase()
+    console.log(req.body.type)
+
+    await   db
+                .query('INSERT INTO products (product_id, title, price, type) VALUES ($1, $2, $3, $4)',
+                        [product_id, req.body.title, req.body.price, req.body.type])
                 .then(re => {
                     console.log(re)
                     res.send(true)
@@ -25,14 +30,15 @@ adminRouter.post('/createProduct', async (req, res) => {
 
 adminRouter.put('/deleteProduct/:product_id', async (req, res) => {
     let product_id = req.params.product_id 
-    await db
-            .query('DELETE FROM products WHERE product_id = $1', [product_id]) 
-            .then(result => {
-                res.redirect('/')
-            })
-            .catch(err => {
-                res.redirect('/')
-            })
+    await   db
+                .query('DELETE FROM products WHERE product_id = $1'
+                        , [product_id]) 
+                .then(result => {
+                    res.redirect('/')
+                })
+                .catch(err => {
+                    res.redirect('/')
+                })
 })
 //mist cookie permision
 

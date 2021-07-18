@@ -13,7 +13,6 @@ window.addEventListener("scroll", revealEle)
 
 function revealEle() {
     var elementNeeds = document.querySelectorAll(".reveal")
-    console.log(elementNeeds)
     for (var index = 0; index < elementNeeds.length; index++) {
 
 

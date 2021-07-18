@@ -1,18 +1,42 @@
-const e = require('express')
+const { parse } = require('dotenv')
 const db = require('../db')
 
 
 module.exports = async (req, res, next) => {
-    let numberOfproduct = await db.query('SELECT COUNT(*) FROM products')
-    let maxPages = Math.round(parseInt(numberOfproduct.rows[0].count)/15) + 1
-    let state = {
-        page: req.params.page_count,
-        display: 3,
-        arrDisplay: []
+    let
+        numberOfproduct, 
+        maxLeft, 
+        maxRight, 
+        maxPages,
+        state = {
+            page: req.params.page_categorized_count || req.params.page_count || req.params.page_search_count,
+            display: 3,
+            arrDisplay: []
+        }
+
+    // calc number of product db had
+
+    if (req.params.product_type) {
+        numberOfproduct = await db.query('SELECT COUNT(*) FROM products WHERE type = $1', [req.params.product_type])
+    } else {
+        numberOfproduct = await db.query('SELECT COUNT(*) FROM products')
     }
 
-    let maxLeft = state.page - Math.floor(state.display / 2)
-    let maxRight = state.page + Math.floor(state.display / 2)
+    // set limit, capacity of pagination
+    
+    if (req.params.page_search_count) {
+        let listProduct = await db.query("SELECT * FROM product")
+        numberOfproduct = listProduct.rows.filter(ele => {
+            return ele.title.indexOf(req.query.product_title) != -1
+        })
+    }
+
+    maxPages = Math.round(parseInt(numberOfproduct.rows[0].count)/15) + 1
+
+    maxLeft = parseInt(state.page) - Math.floor(state.display / 2)
+    maxRight = parseInt(state.page) + Math.floor(state.display / 2)
+
+    //handle every special case with pagination
 
     if (maxLeft < 1) {
         maxLeft = 1
@@ -32,7 +56,20 @@ module.exports = async (req, res, next) => {
         state.arrDisplay.push(i)
     }
 
-    req.arrPagination = state.arrDisplay
+    //handle arr when have categorized
+    if (req.params.page_categorized_count) {
+        for (let index = 0; index < state.arrDisplay.length; index++) {
+            state.arrDisplay[index] = 'categorized/' + req.params.product_type + "/" + String(state.arrDisplay[index])
+        }
+
+    } else {
+        console
+        for (let index = 0; index < state.arrDisplay.length; index++) {
+            state.arrDisplay[index] = String(state.arrDisplay[index])
+        }
+    }
+
+    req.arrPagination = state.arrDisplay 
     next()
 }
 
