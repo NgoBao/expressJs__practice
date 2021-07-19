@@ -22,7 +22,10 @@ module.exports = {
 
         res.render('pageProduct', {
             products: listCurrentProduct.rows,
-            arrPagination: req.arrPagination,
+            arrPagination: {
+                arrUrl: req.arrPagination.arrUrl,
+                arrNumber: req.arrPagination.arrNumber
+            },
             type: stateCategory
         })
         
@@ -51,7 +54,10 @@ module.exports = {
         stateCategory[req.params.product_type] = "active"
         res.render('pageProduct', {
             products: typedProducts.rows,
-            arrPagination: req.arrPagination,
+            arrPagination: {
+                arrUrl: req.arrPagination.arrUrl,
+                arrNumber: req.arrPagination.arrNumber
+            },
             type: stateCategory
         })
     
@@ -71,20 +77,23 @@ module.exports = {
             system: ""
         }
     
-        let listProduct = await db.query("SELECT * FROM product")
+        let listProduct = await db.query("SELECT * FROM products")
         let rows = listProduct.rows.filter(ele => {
-            return ele.indexOf(req.query.product_title) != -1
+            return ele.title.indexOf(req.query.product_title) != -1
         })
         let setPage = (req.params.page_search_count - 1) * 15
         
         if (rows.length - (setPage + 15) <= -15) {
             setPage = 0
-        }
+        } // error
     
-    
+        console.log(rows.slice(setPage, setPage + 15))
         res.render('pageProduct', {
             products: rows.slice(setPage, setPage + 15),
-            arrPagination: req.arrPagination,
+            arrPagination: {
+                arrUrl: req.arrPagination.arrUrl,
+                arrNumber: req.arrPagination.arrNumber
+            },
             type: stateCategory
         })
     }

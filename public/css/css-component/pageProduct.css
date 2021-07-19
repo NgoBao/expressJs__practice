@@ -50,6 +50,28 @@
     opacity: 1;
 }
 
+.pageProduct__searchBar {
+    padding: var(--mp-1) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+}
+
+.pageProduct__searchBar input {
+    padding: var(--mp-0-5);
+    outline: none;
+    font-size: var(--fontSize__normal);
+    background-color: rgba(175, 175, 175, 0.1);
+    border: none;
+    color: var(--color-greenB);
+}
+
+.pageProduct__searchBar button {
+    padding:  var(--btn-s);
+    border: none;
+}
+
 .pageProduct__list h1 {
     font-size: var(--fontSize__bigger);
     text-align: center;

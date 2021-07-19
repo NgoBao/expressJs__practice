@@ -6,6 +6,7 @@ var productRouter = express.Router()
 
 productRouter.get('/:page_count', paginationArr, productController.pageProduct)
 productRouter.get('/categorized/:product_type/:page_categorized_count', paginationArr, productController.categorizedProduct)
-productController.get('/search/:page_search_count', paginationArr, productController.seachProduct)
+productRouter.get('/search/:page_search_count', paginationArr, productController.seachProduct)
 
 module.exports = productRouter
+ 
