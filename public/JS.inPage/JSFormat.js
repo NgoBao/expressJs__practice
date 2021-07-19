@@ -9,8 +9,7 @@ $(window).scroll(function () {
 });
 
 
-window.addEventListener("scroll", revealEle)
-
+window.addEventListener("scroll", revealEle) 
 function revealEle() {
     var elementNeeds = document.querySelectorAll(".reveal")
     for (var index = 0; index < elementNeeds.length; index++) {
@@ -26,7 +25,7 @@ function revealEle() {
             elementNeeds[index].classList.remove('reveal-ex')
         }
     }
-
-
-
 }
+
+
+ 

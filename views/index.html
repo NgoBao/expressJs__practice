@@ -473,9 +473,8 @@
     </div> -->
 
     <!-- register -->
-    <!-- <div id="pageRegister">
-        <div class="grid wide no-gutters"
-            style="box-shadow: 3px 3px 8px rgb(173, 168, 168,.2);">
+    <div id="pageRegister">
+        <div class="grid wide no-gutters" style="box-shadow: 3px 3px 8px rgb(173, 168, 168,.2);">
             <div class="row">
                 <div class="col l-3">
                     <div class="pageRegister__title">
@@ -494,82 +493,38 @@
                         </p>
 
                         <div class="grid">
-                            <form 
-                                action="#" 
-                                method="post"
-                            >
+                            <form action="#" method="post">
                                 <div class="row">
-                                    <input 
-                                    type="text" 
-                                    name="userFirstName" 
-                                    id="userFirstName"
-                                    placeholder="First Name"
-                                    maxlength="30"
-                                    class="col l-5 l-o-1"
-                                >
-                                <input 
-                                    type="text" 
-                                    name="userLastName" 
-                                    id="userFirstName"
-                                    placeholder="Last Name"
-                                    maxlength="30"
-                                    class="col l-5"
-                                >
-                                <input 
-                                    type="text" 
-                                    name="userNumber" 
-                                    id="userNumber"
-                                    placeholder="User number"
-                                    maxlength="10"
-                                    class="col l-5 l-o-1"
-                                >
-                                <input 
-                                    type="email" 
-                                    name="userEmail" 
-                                    id="userEmail"
-                                    maxlength="100"
-                                    class="col l-5"
-                                    placeholder="Email"
-                                >
-                                <input 
-                                    type="password" 
-                                    name="currentPassword" 
-                                    id="currentPassword"
-                                    minlength="8"
-                                    maxlength="30"
-                                    placeholder="Password"
-                                    class="col l-5 l-o-1"
-                                >
-                                <input 
-                                    type="password" 
-                                    name="confirmPassword" 
-                                    id="confirmPassword"
-                                    minlength="8"
-                                    maxlength="30"
-                                    placeholder="Confirm Password"
-                                    class="col l-5"
-                                >
+                                    <input type="text" name="userFirstName" id="userFirstName" placeholder="First Name"
+                                        maxlength="30" class="col l-5 l-o-1">
+                                    <input type="text" name="userLastName" id="userLastName" placeholder="Last Name"
+                                        maxlength="30" class="col l-5">
+                                    <input type="text" name="userNumber" id="userNumber" placeholder="User number"
+                                        maxlength="10" class="col l-5 l-o-1">
+                                    <input type="email" name="userEmail" id="userEmail" maxlength="100" class="col l-5"
+                                        placeholder="Email">
+                                    <input type="password" name="currentPassword" id="currentPassword" minlength="8"
+                                        maxlength="30" placeholder="Password" class="col l-5 l-o-1">
+                                    <input type="password" name="confirmPassword" id="confirmPassword" minlength="8"
+                                        maxlength="30" placeholder="Confirm Password" class="col l-5">
                                 </div>
 
-                                <input 
-                                    type="checkbox" 
-                                    name="termAgree" 
-                                    id="termAgree"
-                                >Agree with our term
+                                <input type="checkbox" name="termAgree" id="termAgree">Agree with our term
 
-                                <input 
-                                    type="submit"
-                                    class="col l-12"
-                                    value="Sign Up"
-                                >
-                                </input>
+                                <input type="submit" class="col l-12" value="Sign Up" id="registerButton">
+
+
+                                <div class="col l-10 l-o-1 pageRegister__error ">
+                                    helo
+                                </div>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- login -->
     <!-- <div id="pageLogin">
@@ -600,7 +555,7 @@
     </div> -->
 
     <!-- PageProduct -->
-    <div id="pageProduct">
+    <!-- <div id="pageProduct">
         <div class="pageProduct__slider">
             <h2>We're here</h2>
         </div>
@@ -842,7 +797,7 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <footer id="homePage__footer">
@@ -929,21 +884,40 @@
 
         }
 
-        function pullLink(e) {
-            product__categoryLink.forEach(element => {
-                if (element.classList.contains('active')) {
-                    element.classList.remove('active')
+        function validationRegister(e) {
+            console.log(!$('#termAgree').prop('checked'))
+            let err = (() => {
+                if (!$('#userFirstName').val().length || !$("#userFirstName").val().length || !$("#userEmail").val().length) {
+                    return "Please fill enought information"
                 }
-            })
-            let val = e.target
-            val.classList.add('active')
+                if ($('#userNumber').val().length !== 10) {
+                    return "Please give us ur right number"
+                }
+                if ($('#currentPassword').val() !== $('#confirmPassword').val() || $('#currentPassword').val().length < 8 || $('#confirmPassword').val().length < 8) {
+                    return "Wrong confirm password or password-length > 8!"
+                }
+                if (!$('#termAgree').prop('checked')) {
+                    return "U need to agree with our term to register"
+                }
+            })()
+            console.log(err)
+            if (err.length) {
+                $('.pageRegister__error').html(err)
+                $('.pageRegister__error').css('display', "block")
+                e.preventDefault()
+            }
         }
 
-        let product__categoryLink = document.querySelectorAll('.pageProduct__category-link')
-        product__categoryLink.forEach(element => {
-            element.addEventListener('click', pullLink)
-            console.log(element)
-        })
+        let registerButton = document.querySelector('#registerButton')
+        console.log(registerButton)
+
+        if(registerButton.addEventListener) {
+            console.log("ag;ngagag")
+            registerButton.addEventListener('click', validationRegister)
+        }
+        
+
+
 
     </script>
 

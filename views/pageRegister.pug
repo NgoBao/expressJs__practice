@@ -1,6 +1,6 @@
 extends pageFormat.pug
 
-block accountRegister
+block accountRegister 
     #pageRegister
         .grid.wide.no-gutters(style='box-shadow: 3px 3px 8px rgb(173, 168, 168,.2);')
             .row
@@ -11,17 +11,44 @@ block accountRegister
                 .col.l-9
                     .pageRegister__body
                         h2
-                            | Let&apos;s join with us
+                            | Let&apos;s join with us 
                         p
                         .grid
-                            form(action='#' method='post')
+                            form(action='http://localhost:3000/account/register' method='post')
                                 .row
                                     input#userFirstName.col.l-5.l-o-1(type='text' name='userFirstName' placeholder='First Name' maxlength='30')
-                                    input#userFirstName.col.l-5(type='text' name='userLastName' placeholder='Last Name' maxlength='30')
+                                    input#userLastName.col.l-5(type='text' name='userLastName' placeholder='Last Name' maxlength='30')
                                     input#userNumber.col.l-5.l-o-1(type='text' name='userNumber' placeholder='User number' maxlength='10')
                                     input#userEmail.col.l-5(type='email' name='userEmail' maxlength='100' placeholder='Email')
                                     input#currentPassword.col.l-5.l-o-1(type='password' name='currentPassword' minlength='8' maxlength='30' placeholder='Password')
                                     input#confirmPassword.col.l-5(type='password' name='confirmPassword' minlength='8' maxlength='30' placeholder='Confirm Password')
                                 input#termAgree(type='checkbox' name='termAgree')
                                 | Agree with our term
-                                input.col.l-12(type='submit' value='Sign Up')
+                                input#registerButton.col.l-12(type='submit' value='Sign Up')
+                                .col.l-10.l-o-1.pageRegister__error 
+    script. 
+        function validationRegister(e) {
+            console.log(!$('#termAgree').prop('checked'))
+            let err = (() => {
+                if (!$('#userFirstName').val().length || !$("#userLirstName").val().length || !$("#userEmail").val().length) {
+                    return "Please fill enought information"
+                }
+                if ($('#userNumber').val().length !== 10) {
+                    return "Please give us ur right number"
+                }
+                if ($('#currentPassword').val() !== $('#confirmPassword').val() || $('#currentPassword').val().length < 8 || $('#confirmPassword').val().length < 8) {
+                    return "Wrong confirm password or password-length > 8!"
+                }
+                if (!$('#termAgree').prop('checked')) {
+                    return "U need to agree with our term to register"
+                }
+            })()
+
+            if (err.length) {
+                $('.pageRegister__error').html(err)
+                $('.pageRegister__error').css('display', "block")
+                e.preventDefault()
+            }
+        }
+
+        $('#registerButton').on('click', validationRegister)
