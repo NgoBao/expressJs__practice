@@ -9,7 +9,7 @@ const pool = new Pool({
 });
 
 (async function() {
-    await   pool.query('CREATE TABLE IF NOT EXISTS users ( user_id VARCHAR(40) NOT NULL PRIMARY KEY, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, phone_number VARCHAR(10) NOT NULL, email VARCHAR(100) NOT NULL, hash_password VARCHAR(50) NOT NULL, UNIQUE(email))')
+    await   pool.query('CREATE TABLE IF NOT EXISTS users ( user_id VARCHAR(40) NOT NULL PRIMARY KEY, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, phone_number VARCHAR(10) NOT NULL, email VARCHAR(100) NOT NULL, hash_password VARCHAR(50) NOT NULL, UNIQUE(email), UNIQUE(phone_number))')
                 .catch(err => {
                         console.log(err)
                 });

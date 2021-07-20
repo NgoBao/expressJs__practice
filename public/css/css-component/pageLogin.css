@@ -38,3 +38,14 @@
     background-color: black;
     color: white;
 }
+
+.pageLogin_component-Err {
+    margin-top: var(--mp-1);
+    padding: var(--mp-1);
+    text-align: center;
+    background-color: transparent;
+    border-radius: 3px;
+    color: white;
+    border: 1px solid white;
+    display: none;
+}

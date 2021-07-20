@@ -473,7 +473,7 @@
     </div> -->
 
     <!-- register -->
-    <div id="pageRegister">
+    <!-- <div id="pageRegister">
         <div class="grid wide no-gutters" style="box-shadow: 3px 3px 8px rgb(173, 168, 168,.2);">
             <div class="row">
                 <div class="col l-3">
@@ -524,10 +524,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- login -->
-    <!-- <div id="pageLogin">
+    <div id="pageLogin">
         <div class="grid wide">
             <div class="row">
                 <div class="col l-10 l-o-1">
@@ -546,13 +546,16 @@
                                 placeholder="Password"
                                 id="userPassword"
                             >
-                            <input type="submit" value="submit">
+                            <input type="submit" value="submit" id="loginButton">
                         </form>
+                        <div class="pageLogin_component-Err">
+                            alo
+                        </div>
                     </div> 
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- PageProduct -->
     <!-- <div id="pageProduct">
@@ -884,40 +887,57 @@
 
         }
 
-        function validationRegister(e) {
-            console.log(!$('#termAgree').prop('checked'))
+        // function validationRegister(e) {
+        //     console.log(!$('#termAgree').prop('checked'))
+        //     let err = (() => {
+        //         if (!$('#userFirstName').val().length || !$("#userFirstName").val().length || !$("#userEmail").val().length) {
+        //             return "Please fill enought information"
+        //         }
+        //         if ($('#userNumber').val().length !== 10) {
+        //             return "Please give us ur right number"
+        //         }
+        //         if ($('#currentPassword').val() !== $('#confirmPassword').val() || $('#currentPassword').val().length < 8 || $('#confirmPassword').val().length < 8) {
+        //             return "Wrong confirm password or password-length > 8!"
+        //         }
+        //         if (!$('#termAgree').prop('checked')) {
+        //             return "U need to agree with our term to register"
+        //         }
+        //     })()
+        //     console.log(err)
+        //     if (err.length) {
+        //         $('.pageRegister__error').html(err)
+        //         $('.pageRegister__error').css('display', "block")
+        //         e.preventDefault()
+        //     }
+        // }
+
+        // let registerButton = document.querySelector('#registerButton')
+        // console.log(registerButton)
+
+        // if(registerButton.addEventListener) {
+        //     console.log("ag;ngagag")
+        //     registerButton.addEventListener('click', validationRegister)
+        // }
+        
+        function validationLogin(e) {
             let err = (() => {
-                if (!$('#userFirstName').val().length || !$("#userFirstName").val().length || !$("#userEmail").val().length) {
-                    return "Please fill enought information"
-                }
-                if ($('#userNumber').val().length !== 10) {
-                    return "Please give us ur right number"
-                }
-                if ($('#currentPassword').val() !== $('#confirmPassword').val() || $('#currentPassword').val().length < 8 || $('#confirmPassword').val().length < 8) {
-                    return "Wrong confirm password or password-length > 8!"
-                }
-                if (!$('#termAgree').prop('checked')) {
-                    return "U need to agree with our term to register"
+                if (!$('#userEmail').val().length) {
+                    return "Please fill your email" 
+                } 
+                if ($('#userPassword').val().length < 8) {
+                    return "Wrong password"
                 }
             })()
-            console.log(err)
+
             if (err.length) {
-                $('.pageRegister__error').html(err)
-                $('.pageRegister__error').css('display', "block")
                 e.preventDefault()
+                $('.pageLogin_component-Err').html(err)
+                $('.pageLogin_component-Err').css("display", "block")
             }
         }
 
-        let registerButton = document.querySelector('#registerButton')
-        console.log(registerButton)
-
-        if(registerButton.addEventListener) {
-            console.log("ag;ngagag")
-            registerButton.addEventListener('click', validationRegister)
-        }
-        
-
-
+        console.log($('#loginButton'))
+        $('#loginButton').on('click', validationLogin)
 
     </script>
 

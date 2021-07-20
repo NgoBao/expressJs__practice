@@ -10,4 +10,25 @@ block accountLogin
                         form(action='#' method='POST')
                             input#userEmail(type='email' name='userEmail' placeholder='Email')
                             input#userPassword(type='password' name='userPassword' placeholder='Password')
-                            input(type='submit' value='submit')
+                            input#loginButton(type='submit' value='submit')
+                        .pageLogin_component-Err
+    script. 
+        function validationLogin(e) {
+            let err = (() => {
+                if (!$('#userEmail').val().length) {
+                    return "Please fill your email" 
+                } 
+                if ($('#userPassword').val().length < 8) {
+                    return "Wrong password"
+                }
+            })()
+
+            if (err.length) {
+                e.preventDefault()
+                $('.pageLogin_component-Err').html(err)
+                $('.pageLogin_component-Err').css("display", "block")
+            }
+        }
+
+        console.log($('#loginButton'))
+        $('#loginButton').on('click', validationLogin)
