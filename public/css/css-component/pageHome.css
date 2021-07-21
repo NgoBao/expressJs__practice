@@ -54,7 +54,7 @@
     color: white;
 }
 
-.homePage-header__account a:last-child {
+.homePage-header__account a:nth-child(2) {
     background-color: rgb(185, 184, 184);
     padding: var(--btn-s);
     border-radius: 5px;
@@ -62,8 +62,23 @@
 
 }
 
+.homePage-header__account a:nth-child(2):hover {
+    color: white;
+    position: relative;
+    z-index: 11;
+}
+
+.homePage-header__account a:last-child {
+    background-color: rgb(185, 184, 184);
+    padding: var(--btn-s);
+    border-radius: 5px;
+    color: black;
+
+}
+
 .homePage-header__account a:last-child:hover {
     color: white;
+    background-color: black;
     position: relative;
     z-index: 11;
 }
@@ -188,7 +203,7 @@
 #myVideo {
     width: 100%;
     filter: brightness(30%);
-    height: 120%;
+
 }    
 
 #introduction {

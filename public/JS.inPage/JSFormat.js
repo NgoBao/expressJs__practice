@@ -6,15 +6,14 @@ $(window).scroll(function () {
     else {
         $("#homePage-header").removeClass("active");
     }
-});
+}); 
 
-
-window.addEventListener("scroll", revealEle) 
+   
+window.addEventListener("scroll", revealEle)  
 function revealEle() {
     var elementNeeds = document.querySelectorAll(".reveal")
     for (var index = 0; index < elementNeeds.length; index++) {
-
-
+ 
         var windowHeight = window.innerHeight
         var revealTop = elementNeeds[index].getBoundingClientRect().top
         var revealPoint = 150
@@ -23,9 +22,6 @@ function revealEle() {
             elementNeeds[index].classList.add('reveal-ex')
         } else {
             elementNeeds[index].classList.remove('reveal-ex')
-        }
-    }
-}
-
-
- 
+        } 
+    }     
+}   

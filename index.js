@@ -5,8 +5,8 @@ const app = express()
 
 
 const bodyParser = require('body-parser')
-const db = require('./db')
-const port = 3000
+const cookieParser = require('cookie-parser')
+const port = process.env.PORT
 
 const pageError = require('./middleWare/pageError.middleWare')
 const adminRouter = require('./route/admin.router')
@@ -15,17 +15,21 @@ const contactRouter = require('./route/contact.router')
 const homeRouter = require('./route/home.router')
 const authRouter = require('./route/auth.router')
 const productRouter = require('./route/product.router')
-const pageErrorMiddleWare = require('./middleWare/pageError.middleWare')
+
+
 
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use(express.static('public'))
+app.use(cookieParser(process.env.SECRETCOOKIE))
+
+
+app.use(express.static('public')) 
 app.set('view engine', 'pug')
 
-
-// test
+ 
+// test   
 app.get('/', (req, res) => {
     res.send("ngo chi bao")
 })     

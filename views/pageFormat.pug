@@ -27,9 +27,16 @@ body
                             a.homePage-header__bar-component(href='/product/1') Product
                             a.homePage-header__bar-component(href='/account') Account
                         .homePage-header__account
-                            a(href='/account/login') Login
-                            a(href='/account/register') Sign Up
-
+                            a#loginButtonHome(href='/account/login') Login
+                            a#registerButtonHome(href='/account/register') Sign Up
+                            a#logoutButtonHome(href='/account/logout') logout
+    script. 
+        if (document.cookie.indexOf('user_id') !== -1) {
+            $('#loginButtonHome').css("display", "none")
+            $('#registerButtonHome').css("display", "none")
+        } else {
+            $('#logoutButtonHome').css("display", "none")
+        }
     block admin
     block homePage 
     block contact 

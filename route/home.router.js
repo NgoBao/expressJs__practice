@@ -5,4 +5,4 @@ homeRouter.get('/', (req, res) => {
     res.render('pageHome', {})
 })
 
-module.exports = homeRouter
+module.exports = homeRouter   
