@@ -52,3 +52,6 @@ app.use(pageError)
 app.listen(port, (req, res) => {
     console.log(`app is running on port ${port}`);
 })  
+
+//fix error auth with number
+//fix error auth with email

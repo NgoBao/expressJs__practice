@@ -14,15 +14,7 @@ authRouter
     .post('/login', authController.postLogin)
 
 authRouter
-    .get('/logout', (req, res) => {
-        if (req.signedCookies.user_id) {
-            res
-                .clearCookie('user_id')
-                .redirect('/home')
-        } else {
-            res.redirect('/home')
-        }
-    })
+    .get('/logout', authController.logout)
 
 
 module.exports = authRouter

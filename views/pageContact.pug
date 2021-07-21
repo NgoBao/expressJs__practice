@@ -56,4 +56,37 @@ block contact
                                                 input#message(type='text' name='message' placeholder='Your message' maxlength='500')
                                         .row 
                                             .col.l-10.l-o-1 
-                                                input(type="submit", value="submit")
+                                                input#sendContactButton(type="submit", value="submit")
+                                        .row 
+                                            .col.l-12.md-12.sm-12
+                                                if err 
+                                                    .col.l-10.l-o-1.pageContact__error(style="display: block;") #{err}
+                                                else 
+                                                    .col.l-10.l-o-1.pageContact__error
+    script. 
+        function validationContact(e) {
+            let err = (() => {
+                if (
+                !$('#userFirstName').val().length || 
+                !$("#userLastName").val().length || 
+                !$("#userEmail").val().length     ||
+                !$("#meetingPurposes").val().length
+                ) {
+                    return "Please fill enought information"
+                }
+                if ($('#phone').val().length !== 10) {
+                    return "Please give us ur right number"
+                }
+                if ($("#message").val().length < 20) {
+                    return "please write your opinion longer"
+                }
+            })()
+
+            if (err.length) {
+                $('.pageContact__error').html(err)
+                $('.pageContact__error').css('display', "block")
+                e.preventDefault()
+            }
+        }
+
+        $('#sendContactButton').on('click', validationContact)

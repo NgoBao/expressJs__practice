@@ -19,12 +19,15 @@ const pool = new Pool({
                         console.log(err)
                 });
 
-    await    pool.query('CREATE TABlE IF NOT EXISTS carts ( cart_id VARCHAR(40) NOT NULL PRIMARY KEY, user_id VARCHAR(40) REFERENCES users(user_id), product_id VARCHAR(40) REFERENCES products(product_id))')
+    await   pool.query('CREATE TABLE IF NOT EXISTS carts ( cart_id VARCHAR(40) NOT NULL PRIMARY KEY, user_id VARCHAR(40) REFERENCES users(user_id), product_id VARCHAR(40) REFERENCES products(product_id))')
                 .catch(err => {
-                        console.log(err)
+                    console.log(err)
                 });
-
-    console.log("databse was set up successfully")
+    await   pool.query('CREATE TABLE IF NOT EXISTS contacts (session_id VARCHAR(40) NOT NULL PRIMARY KEY, first_name VARCHAR(10) NOT NULL, last_name VARCHAR(10) NOT NULL, phone_number VARCHAR(10) NOT NULL, email VARCHAR(100) NOT NULL, message VARCHAR(500) NOT NULL, target VARCHAR(20) NOT NULL)')           
+                .catch(err => { 
+                    console.log(err)
+                })
+    console.log("databse was set up successfully") 
 })();
 
 module.exports = {

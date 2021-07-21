@@ -63,5 +63,15 @@ module.exports = {
                 res.redirect('/account/login?errLogin=Wrong password or your email not exists')
             }
         }
+    },
+
+    logout: (req, res) => {
+        if (req.signedCookies.user_id) {
+            res
+                .clearCookie('user_id')
+                .redirect('/home')
+        } else {
+            res.redirect('/home')
+        }
     }
 }

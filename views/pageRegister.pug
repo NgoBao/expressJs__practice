@@ -28,12 +28,12 @@ block accountRegister
                                 if err 
                                     .col.l-10.l-o-1.pageRegister__error(style="display: block;") #{err}
                                 else 
-                                    .col.l-10.l-o-1.pageRegister__error
+                                    .col.l-10.l-o-1.pageRegister__error afniang
     script. 
         function validationRegister(e) {
             console.log(!$('#termAgree').prop('checked'))
             let err = (() => {
-                if (!$('#userFirstName').val().length || !$("#userLirstName").val().length || !$("#userEmail").val().length) {
+                if (!$('#userFirstName').val().length || !$("#userLastName").val().length || !$("#userEmail").val().length) {
                     return "Please fill enought information"
                 }
                 if ($('#userNumber').val().length !== 10) {

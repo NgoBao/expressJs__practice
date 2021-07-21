@@ -67,3 +67,14 @@
     width: 80%;
     font-size: var(--fontSize__normal);
 }
+
+.pageContact__error {
+    margin-top: var(--mp-1);
+    padding: var(--mp-1);
+    text-align: center;
+    background-color: rgba(228, 203, 203, 0.685);
+    border-radius: 3px;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    display: none;
+}

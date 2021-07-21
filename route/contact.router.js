@@ -1,15 +1,10 @@
 var express = require('express')
 var contactRouter = express.Router()
+const createSession = require('../middleWare/create-session.middleWare')
+const contactController = require('../controller/contact.controller')
 
-contactRouter.get('/', (req,res) => {
-    res.render('pageContact', {})
-})
+contactRouter
+    .get('/', createSession, contactController.getContact)
+    .post('/', createSession, contactController.postContact)
 
-contactRouter.post('/', (res, req) => {
-    console.log(res.body)
-    //connect with database
-    //save contact model
-    //redirect to home page 
-})
-
-module.exports = contactRouter
+module.exports = contactRouter  

@@ -1,8 +1,7 @@
 var express = require('express')
 var homeRouter = express.Router()
-
-homeRouter.get('/', (req, res) => {
-    res.render('pageHome', {})
-})
+const createSession = require('../middleWare/create-session.middleWare')
+const homeController = require('../controller/home.controller')
+homeRouter.get('/', createSession, homeController)
 
 module.exports = homeRouter   
