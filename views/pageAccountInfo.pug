@@ -1,3 +1,115 @@
 extends pageFormat.pug 
 
 block accountInfo 
+    #accountPage
+        .grid.wide
+            .row
+                .col.l-3.l-o-1.md-4
+                    ul.accountPage__info
+                        li  
+                            |   #{firstName} #{lastName}
+                        li
+                            | email: 
+                            span(style='color: #1877f2;') #{email}
+                        li
+                            | phone number: 
+                            span(style='color: #1877f2;') + #{phone_number}
+                    .accountPage__password-btn.activeEdit Change password
+                    .accountPage__profile-btn Edit Profile
+                .col.l-7.md-8
+                    if err 
+                        .accountPage__err(style="display: block;") #{err}
+                    form#changePasswordComponent.accountPage__component(action='http://localhost:3000/account/updatePassword' method='POST' style='display: block;')
+                        input#currentPassword.accountPage__component-input(type='password' name='currentPassword' placeholder='Password')
+                        input#newPassword.accountPage__component-input(type='password' name='newPassword' placeholder='New password')
+                        input#confirmNewPassword.accountPage__component-input(type='password' name='confirmNewPassword' placeholder='confirm password')
+                        input#changeButtonPassword.accountPage__btn(type='submit' value='Change')
+                        .accountPage__err.A
+
+                    form#changeProfileComponent.accountPage__component(action='http://localhost:3000/account/updateInfo' method='POST' style='display: none;')
+                        input#firstName.accountPage__component-input(type='text' name='firstName' placeholder='firstName')
+                        input#lastName.accountPage__component-input(type='text' name='lastName' placeholder='lastName')
+                        input#email.accountPage__component-input(type='email' name='email' placeholder='email')
+                        input#phone.accountPage__component-input(type='text' name='phone' placeholder='phone number')
+                        input#changeButtonProfile.accountPage__btn(type='submit' value='Change')
+                        .accountPage__err.B
+    script. 
+        function activeButtonEdit (e) {
+            if (e.target.classList[0] == "accountPage__password-btn") {
+                if ($('.accountPage__profile-btn').hasClass('activeEdit')) {
+                    $('.accountPage__profile-btn').removeClass('activeEdit')
+                }
+
+                $('#changePasswordComponent').css('display', "block")
+                $('#changeProfileComponent').css('display', "none")
+            } 
+
+            if (e.target.classList[0] == "accountPage__profile-btn") {
+                if ($('.accountPage__password-btn').hasClass('activeEdit')) {
+                    $('.accountPage__password-btn').removeClass('activeEdit')
+                }
+                $('#changePasswordComponent').css('display', "none")
+                $('#changeProfileComponent').css('display', "block")
+            } 
+
+
+            e.target.classList.add('activeEdit')
+        }
+
+        $(".accountPage__password-btn").click(activeButtonEdit)
+        $(".accountPage__profile-btn").click(activeButtonEdit)
+
+        function changeButtonProfile(e) {
+            let err = (() => {
+                if (
+                    !$("#firstName").val().length &&
+                    !$("#lastName").val().length &&
+                    !$("#email").val().length &&
+                    !$("#phone").val().length 
+                ) {
+                    return "Please fill info u wanna change"
+                }
+
+                if (
+                    $("#phone").val().length !== 10 &&
+                    $("#phone").val().length !== 0     
+                ) {
+                    return "Please fill right number"
+                }
+            })()
+
+            if (err.length) {
+                e.preventDefault()
+                $(".accountPage__err.B").html(err)
+                $(".accountPage__err.B").css("display", "block")
+            }
+        }
+
+        $("#changeButtonProfile").click(changeButtonProfile)
+
+        function changeButtonPassword(e) {
+            let err =(() => {
+                if 
+                (
+                    !($("#currentPassword").val().length > 8) ||
+                    !($("#newPassword").val().length > 8) ||
+                    !($("#confirmNewPassword").val().length > 8) 
+                ) {
+                    return "Password must be more 8 character"
+                } 
+
+                if (
+                    $("#newPassword").val() !== $("#confirmNewPassword").val()
+                ) {
+                    return "Confirm wrong password"
+                }
+            })()
+
+            if (err.length) {
+                e.preventDefault()
+                $(".accountPage__err.A").html(err)
+                $(".accountPage__err.A").css("display", "block")
+            }
+        }
+   
+        $("#changeButtonPassword").click(changeButtonPassword)

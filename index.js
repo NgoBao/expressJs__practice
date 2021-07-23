@@ -31,7 +31,7 @@ app.set('view engine', 'pug')
  
 // test   
 app.get('/', (req, res) => {
-    res.send("ngo chi bao")
+    res.send(req.signedCookies.session_id)
 })     
 //admin page
 app.use('/admin', adminRouter)

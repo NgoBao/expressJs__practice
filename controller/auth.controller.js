@@ -2,6 +2,75 @@ const { v4: uuid, v5: uuidPassword } = require('uuid');
 const db = require('../db')
 
 module.exports = {
+    getAccount: async (req, res) => {
+        let userInfo = await db.query("SELECT * FROM users WHERE user_id = $1", [req.signedCookies.user_id])
+
+        res.render("pageAccountInfo", {
+            firstName: userInfo.rows[0].first_name,
+            lastName: userInfo.rows[0].last_name, 
+            email: userInfo.rows[0].email,
+            phone_number: userInfo.rows[0].phone_number,
+            err: req.query.errAccountEdit,
+        })  
+    },
+
+    getUpdateAccountPassword: (req, res) => {
+        console.log(req.body)
+        if (
+            (req.body.currentPassword.length > 8) &&
+            (req.body.newPassword.length > 8) &&
+            (req.body.confirmNewPassword.length > 8) && 
+            (req.body.newPassword === req.body.confirmNewPassword)
+        ) {
+            let new_hash_password = uuidPassword(req.body.newPassword, process.env.SECRETPASSWORDKEY) 
+            let old_hash_password = uuidPassword(req.body.currentPassword, process.env.SECRETPASSWORDKEY)
+            db
+                .query(`UPDATE users SET hash_password = $1 WHERE user_id = $2 AND hash_password = ${old_hash_password}`,
+                    [
+                        new_hash_password, 
+                        req.signedCookies.user_id,
+                    ]
+                )
+                .then(result => {
+                    console.log(result)
+                    res.redirect('/home')
+                })
+                .catch(err => {
+                    res.redirect('/account?errAccountEdit=Old password wrong')
+                })
+        }
+    },
+
+    getUpdateAccountInfo: async (req, res) => {
+        let stateUpdateInfo = {
+            first_name: req.body.firstName,
+            last_name: req.body.lastName,
+            email: req.body.email,
+            phone_number: req.body.phone
+        }
+
+        console.log(stateUpdateInfo)
+
+        for (const key in stateUpdateInfo) {
+            if (stateUpdateInfo[key].length === 0 || !stateUpdateInfo[key]) {
+                delete stateUpdateInfo[key]
+            } else { 
+                await    db
+                            .query(`UPDATE users SET ${key}=$1 WHERE user_id=$2`,
+                            [
+                                stateUpdateInfo[key],
+                                req.signedCookies.user_id
+                            ])
+                            .then(result => {
+                                res.redirect('/home')
+                            })
+                            .catch(err => {
+                                res.redirect('/account?errAccountEdit=your information was wrong')
+                            })
+            }   
+        }
+    },
+
     getRegister: (req, res) => {
         res.render('pageRegister', {
             err: req.query.errRegister

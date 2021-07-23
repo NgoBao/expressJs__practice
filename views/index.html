@@ -527,7 +527,7 @@
     </div> -->
 
     <!-- login -->
-    <div id="pageLogin">
+    <!-- <div id="pageLogin">
         <div class="grid wide">
             <div class="row">
                 <div class="col l-10 l-o-1">
@@ -555,7 +555,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- PageProduct -->
     <!-- <div id="pageProduct">
@@ -803,6 +803,121 @@
     </div> -->
 
 
+    <div id="accountPage">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-3 l-o-1 md-4">
+                    <ul class="accountPage__info">
+                        <li>
+                            rock pikin
+                        </li>
+                        <li>email: 
+                            <span style="color: #1877f2;"> 
+                                bidanh2468@gmai.com
+                            </span>
+                        </li>
+                        <li>phone number: 
+                            <span style="color: #1877f2;">
+                                + 0398479069
+                            </span>
+                        </li>
+                    </ul>
+
+                    <!-- avatar shortage  -->
+                    <div class="accountPage__password-btn activeEdit">
+                        Change password
+                    </div>
+                    <div class="accountPage__profile-btn">
+                        Edit Profile 
+                    </div>
+                </div>
+                <div class="col l-7  md-8">
+                    <!-- set error -->
+
+
+                    <form 
+                        id="changePasswordComponent"
+                        class="accountPage__component"
+                        action="http://localhost:3000/account/updatePassword"
+                        method="POST"
+                        style="display: block;"
+                    >
+                        <input 
+                            type="password" 
+                            id='currentPassword'
+                            name="currentPassword" 
+                            class="accountPage__component-input"
+                            placeholder="Password"
+                            >
+                        <input 
+                            type="password" 
+                            id='newPassword'
+                            name="newPassword" 
+                            class="accountPage__component-input"
+                            placeholder="New password"
+                            >
+                        <input 
+                            type="password" 
+                            id='confirmNewPassword'
+                            name="confirmNewPassword"  
+                            class="accountPage__component-input"
+                            placeholder="confirm password"
+                            >
+                        <input type="submit" value="Change" id="changeButtonPassword" class="accountPage__btn">
+                        <div class="accountPage__err A">
+                            alo
+                        </div>
+                    </form>
+
+                    <form 
+                        id="changeProfileComponent"
+                        class="accountPage__component"
+                        action="http://localhost:3000/account/updateInfo"
+                        method="POST"
+                        style="display: none;"
+                    >
+                        <input 
+                            type="text" 
+                            id='firstName'
+                            name="firstName" 
+                            class="accountPage__component-input"
+                            placeholder="firstName"
+                        >
+                        <input 
+                            type="text" 
+                            id='lastName'
+                            name="lastName" 
+                            class="accountPage__component-input"
+                            placeholder="lastName"
+                            >
+                        <input 
+                            type="email" 
+                            id='email'
+                            name="email"  
+                            class="accountPage__component-input"
+                            placeholder="email"
+                        >
+                        <input
+                            type="text" 
+                            id='phone'
+                            name="phone"  
+                            class="accountPage__component-input"
+                            placeholder="phone number"
+                        >
+                        <input type="submit" value="Change" id="changeButtonProfile" class="accountPage__btn">
+                        <div class="accountPage__err B">
+                            alo
+                        </div>
+                    </form>
+
+                    
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
     <footer id="homePage__footer">
         <div class="grid">
             <div class="row">
@@ -919,27 +1034,106 @@
         //     registerButton.addEventListener('click', validationRegister)
         // }
         
-        function validationLogin(e) {
+        // function validationLogin(e) {
+        //     let err = (() => {
+        //         if (!$('#userEmail').val().length) {
+        //             return "Please fill your email" 
+        //         } 
+        //         if ($('#userPassword').val().length < 8) {
+        //             return "Wrong password"
+        //         }
+        //     })()
+
+        //     if (err.length) {
+        //         e.preventDefault()
+        //         $('.pageLogin_component-Err').html(err)
+        //         $('.pageLogin_component-Err').css("display", "block")
+        //     }
+        // }
+
+        // console.log($('#loginButton'))
+        // $('#loginButton').on('click', validationLogin)
+
+        function activeButtonEdit (e) {
+            if (e.target.classList[0] == "accountPage__password-btn") {
+                if ($('.accountPage__profile-btn').hasClass('activeEdit')) {
+                    $('.accountPage__profile-btn').removeClass('activeEdit')
+                }
+
+                $('#changePasswordComponent').css('display', "block")
+                $('#changeProfileComponent').css('display', "none")
+            } 
+
+            if (e.target.classList[0] == "accountPage__profile-btn") {
+                if ($('.accountPage__password-btn').hasClass('activeEdit')) {
+                    $('.accountPage__password-btn').removeClass('activeEdit')
+                }
+                $('#changePasswordComponent').css('display', "none")
+                $('#changeProfileComponent').css('display', "block")
+            } 
+
+
+            e.target.classList.add('activeEdit')
+        }
+
+        $(".accountPage__password-btn").click(activeButtonEdit)
+        $(".accountPage__profile-btn").click(activeButtonEdit)
+
+        function changeButtonProfile(e) {
             let err = (() => {
-                if (!$('#userEmail').val().length) {
-                    return "Please fill your email" 
-                } 
-                if ($('#userPassword').val().length < 8) {
-                    return "Wrong password"
+                if (
+                    !$("#firstName").val().length &&
+                    !$("#lastName").val().length &&
+                    !$("#email").val().length &&
+                    !$("#phone").val().length 
+                ) {
+                    return "Please fill info u wanna change"
+                }
+
+                if (
+                    $("#phone").val().length !== 10 &&
+                    $("#phone").val().length !== 0     
+                ) {
+                    return "Please fill right number"
                 }
             })()
 
             if (err.length) {
                 e.preventDefault()
-                $('.pageLogin_component-Err').html(err)
-                $('.pageLogin_component-Err').css("display", "block")
+                $(".accountPage__err.B").html(err)
+                $(".accountPage__err.B").css("display", "block")
             }
         }
 
-        console.log($('#loginButton'))
-        $('#loginButton').on('click', validationLogin)
+        $("#changeButtonProfile").click(changeButtonProfile)
 
-    </script>
+        function changeButtonPassword(e) {
+            let err =(() => {
+                if 
+                (
+                    !($("#currentPassword").val().length > 8) ||
+                    !($("#newPassword").val().length > 8) ||
+                    !($("#confirmNewPassword").val().length > 8) 
+                ) {
+                    return "Password must be more 8 character"
+                } 
+
+                if (
+                    $("#newPassword").val() !== $("#confirmNewPassword").val()
+                ) {
+                    return "Confirm wrong password"
+                }
+            })()
+
+            if (err.length) {
+                e.preventDefault()
+                $(".accountPage__err.A").html(err)
+                $(".accountPage__err.A").css("display", "block")
+            }
+        }
+   
+        $("#changeButtonPassword").click(changeButtonPassword)
+   </script>
 
 </body>
 
