@@ -112,14 +112,14 @@ body * {
     max-width: 100%;
 }
 
-@media screen and (max-width: 560px) {
-    .grid.wide {
-        width: 310px;
-    }
-}
+
 
 
 @media screen and (max-width: 739px) {
+    .grid.wide {
+        width: 510px;
+    }
+
     .sm-o-1 {
         margin-left: 8.33333%;
     }
@@ -158,11 +158,15 @@ body * {
     }
 }
 
-
+@media screen and (max-width: 560px) {
+    .grid.wide {
+        width: 310px;
+    }
+}
 
 @media screen and (min-width: 740px) and (max-width: 1023px) {
     .grid.wide {
-        width: 644px;
+        width: 700px;
     }
     .md-1,
     .md-2,

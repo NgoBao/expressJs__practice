@@ -1,0 +1,40 @@
+extends pageFormat.pug 
+
+block cart
+    #cartPage
+        h1.headingSlider Shopping cart
+        .grid.wide
+            .row
+                .col.l-8.md-8.sm-12.cartPage__component
+                        h3.cartPage__heading Cart items: #{count}
+                        
+                        ul.cartPage__productList
+                            each item in cart
+                                li.grid
+                                    .row
+                                        .col.l-3.md-3.sm-4
+                                            img(src='/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg', alt='')
+                                        .col.l-9.md-9.sm-8
+                                            .cartPage__item-content
+                                                div(style='flex-grow: 1;')
+                                                    h3 ProductName:  #{item.title}
+                                                    h4 type:  #{item.type}
+                                                    h4 sold:  #{item.sold}
+                                                    a.cartPage__removeLink(href='/account/removeCart/' + item.cart_id)
+                                                        i.fas.fa-trash-alt
+                                                        |                                            EMOVE ITEM
+                                                    a.cartPage__removeLink(href='/product/access/' + item.product_id)
+                                                        i.far.fa-eye
+                                                        |                                            VIEW ITEM
+                                                h3 price: #{item.price}$
+                .col.l-3.md-4.sm-12
+                    .cartPage__total-Amount
+                        h3.cartPage__heading The total amount of
+                        br
+                        h4 Temporary: #{totalPrice}$
+                        h4 Fee: 10$
+                        br
+                        hr
+                        br
+                        h4 Total Price (+taxes): #{totalPrice + 10}
+                        a(href='') Purchase

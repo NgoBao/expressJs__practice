@@ -76,6 +76,12 @@
 
 }
 
+#cartButtonHome {
+    font-size: var(--fontSize__h3);
+    color: black;
+    padding: var(--mp-0-5) var(--mp-1);
+}
+
 .homePage-header__account a:last-child:hover {
     color: white;
     background-color: black;

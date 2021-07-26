@@ -802,8 +802,58 @@
         </div>
     </div> -->
 
+    <!-- <div id="productItemPage">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-8 md-10 md-o-1 sm-12">
+                    <div class="cardProduct__img">
+                        <img src="../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <div class="col l-4 md-10 md-o-1 sm-12">
+                    <div class="cardProduct__title">
+                        <div>
+                            <h4>Type:commercial</h4>
+                            <h2>product name</h2>
+                        </div>
+                        <div style="color: var(--color-gray);">
+                            Sold: 12
+                        </div>
+                    </div>
+                    <div class="cardProduct__package">
+                        <div class="cardProduct__package-component activeChoice" id="commonPackage">
+                            Common
+                        </div>
+                        <div class="cardProduct__package-component" id="premiumPackage">  
+                            Premium
+                        </div>
+                    </div>
+                    <div class="cardProduct__content">
+                        <ul class="commonPackage activePackage">
+                            <li>3 months support/garrant</li>
+                            <li>price: 13$</li>
+                            <li>non editable with customer'require</li>
+                            
+                        </ul>
+                        <ul class="premiumPackage">
+                            <li>6 months support/garrant</li>
+                            <li>price: 23$</li>
+                            <li>editable with customer'require (30%)</li>
+                        </ul>
+                        
+                    </div>
 
-    <div id="accountPage">
+                    <div class="cardProduct__button">
+                        <a href="#" id='addToCard'>Add premium to cart</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div id="accountPage">
         <div class="grid wide">
             <div class="row">
                 <div class="col l-3 l-o-1 md-4">
@@ -823,7 +873,7 @@
                         </li>
                     </ul>
 
-                    <!-- avatar shortage  -->
+                    
                     <div class="accountPage__password-btn activeEdit">
                         Change password
                     </div>
@@ -832,7 +882,7 @@
                     </div>
                 </div>
                 <div class="col l-7  md-8">
-                    <!-- set error -->
+               
 
 
                     <form 
@@ -916,7 +966,102 @@
                 
             </div>
         </div>
+    </div> -->
+
+    <div id="cartPage">
+        <h1>Shopping cart</h1>
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-8 md-8 sm-12 cartPage__component">
+                    <h3 class="cartPage__heading">Cart items: 3</h3>
+                    <ul class="cartPage__productList">
+                        <li class="grid">
+                            <div class="row">
+                                <div class="col l-3">
+                                    <img src="../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg" alt="">
+                                </div>
+                                <div class="col l-9">
+                                    <div class="cartPage__item-content">
+                                        <div>
+                                            <h3>ProductName</h3>
+                                            <h4>type: </h4>
+                                            <h4>sold: </h4>
+                                            <a href="#">
+                                                <i class="fas fa-trash-alt"></i>
+                                            EMOVE ITEM</a>  
+                                        </div>  
+                                        
+                                        <h3>price</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="grid">
+                            <div class="row">
+                                <div class="col l-3">
+                                    <img src="../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg" alt="">
+                                </div>
+                                <div class="col l-9">
+                                    <div class="cartPage__item-content">
+                                        <div>
+                                            <h3>ProductName</h3>
+                                            <h4>type: </h4>
+                                            <h4>sold: </h4>
+                                            <a href="#">
+                                                <i class="fas fa-trash-alt"></i>
+                                            EMOVE ITEM</a>  
+                                        </div>  
+                                        
+                                        <h3>price</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="grid">
+                            <div class="row">
+                                <div class="col l-3">
+                                    <img src="../public/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg" alt="">
+                                </div>
+                                <div class="col l-9">
+                                    <div class="cartPage__item-content">
+                                        <div>
+                                            <h3>ProductName</h3>
+                                            <h4>type: </h4>
+                                            <h4>sold: </h4>
+                                            <a href="#">
+                                                <i class="fas fa-trash-alt"></i>
+                                            EMOVE ITEM</a>  
+                                        </div>  
+                                        
+                                        <h3>price</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l-3 md-4 sm-12">
+                    <div class="cartPage__total-Amount">
+                        <h3 class="cartPage__heading">The total amount of</h3>
+                        <br>
+                        <h4>Temporary: 199$</h4>
+                        <h4>Fee: 10$</h4>
+                        <br>
+                        <hr>
+                        <br>
+                        <h4>
+                            Total Price (+taxes): 
+                        </h4>
+                        <a href="">
+                            Purchase
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
     <footer id="homePage__footer">
         <div class="grid">
@@ -1054,86 +1199,102 @@
         // console.log($('#loginButton'))
         // $('#loginButton').on('click', validationLogin)
 
-        function activeButtonEdit (e) {
-            if (e.target.classList[0] == "accountPage__password-btn") {
-                if ($('.accountPage__profile-btn').hasClass('activeEdit')) {
-                    $('.accountPage__profile-btn').removeClass('activeEdit')
-                }
+        // function activeButtonEdit (e) {
+        //     if (e.target.classList[0] == "accountPage__password-btn") {
+        //         if ($('.accountPage__profile-btn').hasClass('activeEdit')) {
+        //             $('.accountPage__profile-btn').removeClass('activeEdit')
+        //         }
 
-                $('#changePasswordComponent').css('display', "block")
-                $('#changeProfileComponent').css('display', "none")
-            } 
+        //         $('#changePasswordComponent').css('display', "block")
+        //         $('#changeProfileComponent').css('display', "none")
+        //     } 
 
-            if (e.target.classList[0] == "accountPage__profile-btn") {
-                if ($('.accountPage__password-btn').hasClass('activeEdit')) {
-                    $('.accountPage__password-btn').removeClass('activeEdit')
-                }
-                $('#changePasswordComponent').css('display', "none")
-                $('#changeProfileComponent').css('display', "block")
-            } 
+        //     if (e.target.classList[0] == "accountPage__profile-btn") {
+        //         if ($('.accountPage__password-btn').hasClass('activeEdit')) {
+        //             $('.accountPage__password-btn').removeClass('activeEdit')
+        //         }
+        //         $('#changePasswordComponent').css('display', "none")
+        //         $('#changeProfileComponent').css('display', "block")
+        //     } 
 
 
-            e.target.classList.add('activeEdit')
-        }
+        //     e.target.classList.add('activeEdit')
+        // }
 
-        $(".accountPage__password-btn").click(activeButtonEdit)
-        $(".accountPage__profile-btn").click(activeButtonEdit)
+        // $(".accountPage__password-btn").click(activeButtonEdit)
+        // $(".accountPage__profile-btn").click(activeButtonEdit)
 
-        function changeButtonProfile(e) {
-            let err = (() => {
-                if (
-                    !$("#firstName").val().length &&
-                    !$("#lastName").val().length &&
-                    !$("#email").val().length &&
-                    !$("#phone").val().length 
-                ) {
-                    return "Please fill info u wanna change"
-                }
+        // function changeButtonProfile(e) {
+        //     let err = (() => {
+        //         if (
+        //             !$("#firstName").val().length &&
+        //             !$("#lastName").val().length &&
+        //             !$("#email").val().length &&
+        //             !$("#phone").val().length 
+        //         ) {
+        //             return "Please fill info u wanna change"
+        //         }
 
-                if (
-                    $("#phone").val().length !== 10 &&
-                    $("#phone").val().length !== 0     
-                ) {
-                    return "Please fill right number"
-                }
-            })()
+        //         if (
+        //             $("#phone").val().length !== 10 &&
+        //             $("#phone").val().length !== 0     
+        //         ) {
+        //             return "Please fill right number"
+        //         }
+        //     })()
 
-            if (err.length) {
-                e.preventDefault()
-                $(".accountPage__err.B").html(err)
-                $(".accountPage__err.B").css("display", "block")
-            }
-        }
+        //     if (err.length) {
+        //         e.preventDefault()
+        //         $(".accountPage__err.B").html(err)
+        //         $(".accountPage__err.B").css("display", "block")
+        //     }
+        // }
 
-        $("#changeButtonProfile").click(changeButtonProfile)
+        // $("#changeButtonProfile").click(changeButtonProfile)
 
-        function changeButtonPassword(e) {
-            let err =(() => {
-                if 
-                (
-                    !($("#currentPassword").val().length > 8) ||
-                    !($("#newPassword").val().length > 8) ||
-                    !($("#confirmNewPassword").val().length > 8) 
-                ) {
-                    return "Password must be more 8 character"
-                } 
+        // function changeButtonPassword(e) {
+        //     let err =(() => {
+        //         if 
+        //         (
+        //             !($("#currentPassword").val().length > 8) ||
+        //             !($("#newPassword").val().length > 8) ||
+        //             !($("#confirmNewPassword").val().length > 8) 
+        //         ) {
+        //             return "Password must be more 8 character"
+        //         } 
 
-                if (
-                    $("#newPassword").val() !== $("#confirmNewPassword").val()
-                ) {
-                    return "Confirm wrong password"
-                }
-            })()
+        //         if (
+        //             $("#newPassword").val() !== $("#confirmNewPassword").val()
+        //         ) {
+        //             return "Confirm wrong password"
+        //         }
+        //     })()
 
-            if (err.length) {
-                e.preventDefault()
-                $(".accountPage__err.A").html(err)
-                $(".accountPage__err.A").css("display", "block")
-            }
-        }
-   
-        $("#changeButtonPassword").click(changeButtonPassword)
-   </script>
+        //     if (err.length) {
+        //         e.preventDefault()
+        //         $(".accountPage__err.A").html(err)
+        //         $(".accountPage__err.A").css("display", "block")
+        //     }
+        // }
+
+        // $("#changeButtonPassword").click(changeButtonPassword)
+    
+        // function editPackage(e) {
+        //     $(".cardProduct__package-component").removeClass("activeChoice")
+        //     e.target.classList.add("activeChoice")
+
+        //     let namePackage = e.target.getAttribute("id")
+        //     $(".commonPackage").removeClass("activePackage")
+        //     $('.premiumPackage').removeClass("activePackage")
+        //     $(`.${namePackage}`).addClass("activePackage")
+        // }
+
+        // $(".cardProduct__package-component").click(editPackage)
+    
+        
+
+
+    </script>
 
 </body>
 

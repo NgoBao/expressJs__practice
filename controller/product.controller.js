@@ -1,11 +1,13 @@
 const db = require('../db')
+const { v4: uuid } = require("uuid");
+
 
 module.exports = {
     pageProduct: async (req, res) => {
         let setPage = (req.params.page_count - 1) * 15; 
         let numberOfproduct = await db.query('SELECT COUNT(*) FROM products');
         let stateCategory = {
-            all: "",
+            all: "active",
             commercial: "",
             shop: "",
             blog: "",
@@ -18,7 +20,6 @@ module.exports = {
         } 
 
         let listCurrentProduct = await db.query('SELECT * FROM products OFFSET $1 LIMIT 15', [setPage])
-        stateCategory.all = "active"
 
         res.render('pageProduct', {
             products: listCurrentProduct.rows,
@@ -96,5 +97,39 @@ module.exports = {
             },
             type: stateCategory
         })
-    }
+    },
+
+    productItem: (req, res) => {
+        db
+            .query("SELECT * FROM products WHERE product_id = $1", [req.params.productItemId])
+            .then(result => {
+                res.render("productItem", {
+                    product: result.rows[0]
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    },
+
+    addCart: (req, res) => {
+        if (!req.signedCookies.user_id) {
+            res.redirect("/account/login")
+        }  else {
+            db
+            .query("INSERT INTO carts (cart_id, user_id, product_id) VALUES ($1, $2, $3)", 
+            [
+                uuid(),
+                req.signedCookies.user_id,
+                req.params.product_id
+            ])
+            .then(result => {
+                res.redirect('/product/1')
+            })
+            .catch(err => {
+                res.redirect(`/product/access/${req.params.product_id}`)
+            })
+        } 
+    },
+
 }

@@ -1,0 +1,44 @@
+extends pageFormat.pug 
+
+block productItem
+    #productItemPage
+        .grid.wide
+            .row
+                .col.l-8.md-10.md-o-1.sm-12
+                    .cardProduct__img
+                        img.imageProductDetail(src='/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='')
+                .col.l-4.md-10.md-o-1.sm-12
+                    .cardProduct__title
+                        div
+                            h4 Type: #{product.type}
+                            h2 Product name: #{product.title}
+                        div(style='color: var(--color-gray);')
+                            | Sold: #{product.sold}
+                    .cardProduct__package
+                        #commonPackage.cardProduct__package-component.activeChoice
+                            | Common
+                        #premiumPackage.cardProduct__package-component
+                            | Premium
+                    .cardProduct__content
+                        ul.commonPackage.activePackage
+                            li 3 months support/garrant
+                            li price: #{product.price}
+                            li non editable with customer&apos;require
+                        ul.premiumPackage
+                            li 6 months support/garrant
+                            li price: #{product.price} + 35% $
+                            li editable with customer&apos;require (over 30%)
+                    a.cardProduct__button(href='/product/addcart/' + product.product_id) Add to cart
+                    
+    script. 
+        function editPackage(e) {
+            $(".cardProduct__package-component").removeClass("activeChoice")
+            e.target.classList.add("activeChoice")
+
+            let namePackage = e.target.getAttribute("id")
+            $(".commonPackage").removeClass("activePackage")
+            $('.premiumPackage').removeClass("activePackage")
+            $(`.${namePackage}`).addClass("activePackage")
+        }
+
+        $(".cardProduct__package-component").click(editPackage)

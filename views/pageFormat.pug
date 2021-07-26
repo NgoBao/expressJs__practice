@@ -29,6 +29,7 @@ body
                         .homePage-header__account
                             a#loginButtonHome(href='/account/login') Login
                             a#registerButtonHome(href='/account/register') Sign Up
+                            a#cartButtonHome(href='/account/cart') <i class="fas fa-shopping-bag"></i>
                             a#logoutButtonHome(href='/account/logout') logout
     script. 
         if (document.cookie.indexOf('user_id') !== -1) {
@@ -36,6 +37,7 @@ body
             $('#registerButtonHome').css("display", "none")
         } else {
             $('#logoutButtonHome').css("display", "none")
+            $('#cartButtonHome').css("display", "none")
         }
     block admin
     block homePage 
@@ -43,9 +45,11 @@ body
     block product 
     block support 
     block about
+    block cart
     block accountLogin 
     block accountRegister 
     block accountInfo 
+    block productItem
     block notFound404
 
     footer#homePage__footer

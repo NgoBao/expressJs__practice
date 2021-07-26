@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
 
 @import url("./css-component/optionComponent.css");
 
@@ -11,12 +12,13 @@
 @import url('./css-component/pageRegister.css');
 @import url('./css-component/pageLogin.css');
 @import url('./css-component/pageProduct.css');
-
-
+@import url('./css-component/accountPage.css');
+@import url('./css-component/cart.css');
 
 :root {
     --fontFamily: 'Roboto', sans-serif;
     --fontBrand: 'Yomogi', cursive;
+    --fontProduct: 'Montserrat', sans-serif;
 }
 
 * {
@@ -40,87 +42,148 @@ body {
 }
 
 #homePage-header.active {
-    box-shadow: 0 1px 5px rgb(173, 168, 168, .7);
+    box-shadow: 0 1px 5px rgb(173, 168, 168, .3);
+}
+
+#productItemPage {
+    padding-top: var(--mp-2);
+    margin-bottom: -12rem;
 }
 
 
-#accountPage {  
-    padding-top: var(--mp-3);
-}
-
-#accountPage .col {
-    border: 1px solid rgb(173, 168, 168, .2);
-}
-
-.accountPage__password-btn {
-    display: block;
-    padding: var(--mp-1-5);
-    border-left: 2px solid transparent ;
-    opacity: .7;
-    transition: opacity .5 ease;
+.cardProduct__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
-
-.accountPage__profile-btn {
-    display: block;
-    padding: var(--mp-1-5);
-    border-left: 2px solid transparent;
-    opacity: .7;
-    transition: opacity .5 ease;
+.cardProduct__title h2 {
+    font-family: var(--fontProduct);
+    font-weight: 400;
 }
 
-.activeEdit {
-    border-left: 2px solid black ;
-    opacity: 1;
+.cardProduct__title h4 {
+    font-family: var(--fontProduct);
+    font-weight: 200;
 }
 
-.accountPage__component {
-    padding: var(--mp-1);
-
-}
-
-.accountPage__info {
-    border-bottom: 1px solid rgb(173, 168, 168, .2);
-    list-style: none;
-    margin: none;
-    padding: var(--mp-1-5)
-}
-
-.accountPage__info li {
-    padding-top: var(--mp-0-5);
-}
-
-.accountPage__component-input {
-    display: block; 
-    border: none;
-    background-color: rgb(173, 168, 168, .2);
-    padding: var(--mp-1) var(--mp-1-5);
-    width: 80%;
+.cardProduct__package {
     margin: 0 auto;
-    margin-top: var(--mp-1);
-    font-size: .9rem;
+    padding:var(--mp-0-5) var(--mp-1) ;
+    display: flex;
+
 }
 
-.accountPage__btn {
+.cardProduct__package-component {
     display: block;
-    background-color: #1877f2;
-    font-size: var(--fontSize__normal);
-    border: none;
-    color: white;
-    border-radius: 3px;
-    padding: var(--btn-lg);
-    margin: 0 auto;
-    margin-top: var(--mp-1);
-}
-
-.accountPage__err {
-    margin: var(--mp-1);
-    padding: var(--mp-1);
+    width: 48%;
+    margin: 0 1%;
     text-align: center;
-    background-color: rgba(228, 203, 203, 0.685);
-    border-radius: 3px;
-    color: #dc3545;
-    border: 1px solid #dc3545;
-    display: none;
+    padding-top: var(--mp-4);
+    padding-bottom: var(--mp-1);
 }
+
+.cardProduct__package-component.activeChoice {
+    border-bottom: 1px black solid;
+}
+
+.cardProduct__content {
+    margin-top: var(--mp-1);
+}
+
+.cardProduct__content li {
+    list-style: none;
+    line-height: var(--mp-2);
+}  
+
+.premiumPackage,
+.commonPackage {
+    display: none;
+    padding-left: var(--mp-1);
+}
+
+.premiumPackage.activePackage,
+.commonPackage.activePackage {
+    display: block;
+}
+
+.premiumPackage.activePackage li:nth-of-type(2), 
+.commonPackage.activePackage li:nth-of-type(2) {
+    animation: flowText 2.25s ease;
+}
+
+.premiumPackage.activePackage li:last-child, 
+.commonPackage.activePackage li:last-child {
+    animation: flowText 2.5s ease;
+}
+
+.premiumPackage.activePackage li,
+.commonPackage.activePackage li {
+    animation: flowText 2s ease;
+}
+
+.cardProduct__button {
+    margin: 0 auto;
+    margin-top: 16rem;
+    padding: var(--mp-1);
+    border: 1px solid var(--color-black);
+    border-radius: 8% / 50%;
+    display: block;
+    width: 80%;
+    transition: background-color .4s ease,  color .8s ease;
+    text-decoration: none;
+    color: var(--color-black);
+}
+
+.cardProduct__button:hover {
+    background-color: var(--color-black);
+    color: white;
+}
+
+
+.imageProductDetail {
+    max-height: 900px;
+}
+
+@keyframes flowText {
+    0% {
+        transform: translateX(80%);
+        opacity: 0;
+    }   
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.cardProduct__button {
+    text-align: center;
+}
+@media screen and (max-width: 1023px) {
+    .cardProduct__button  {
+        margin-top: var(--mp-4);
+        width: 60%;
+    }
+
+    .imageProductDetail {
+        max-height: 700px;
+    }
+
+    #productItemPage {
+        padding-top: var(--mp-2);
+        margin-bottom: -1rem;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .imageProductDetail {
+        max-height: 500px;
+    }
+    .cardProduct__button  {
+        margin-top: var(--mp-4);
+        width: 80%;
+    }
+    
+}
+

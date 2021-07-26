@@ -142,5 +142,45 @@ module.exports = {
         } else {
             res.redirect('/home')
         }
+    }, 
+
+    cartUser: (req, res) => {
+        db
+            .query('SELECT cart_id ,product_id, price, sold, type, title FROM carts INNER JOIN products USING (product_id) WHERE user_id = $1', 
+            [
+                req.signedCookies.user_id
+            ])
+            .then(result => {
+                let totalPrice = 0, i = 0
+                result.rows.forEach((Element) => {
+                    totalPrice = totalPrice + parseFloat(Element.price)
+                    i++
+                })
+                
+                res.render("cart", {
+                    cart: result.rows,
+                    totalPrice: totalPrice,
+                    count: i
+                })
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    },
+
+    removeCart: (req, res) => {
+        if (req.params.cart_id.length > 0) {
+            db
+                .query('DELETE FROM carts WHERE cart_id = $1', [
+                    req.params.cart_id
+                ])
+                .then(result => {
+                    res.redirect('/account/cart')
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.redirect('/account/cart')
+                })
+        }
     }
 }

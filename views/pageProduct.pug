@@ -30,7 +30,7 @@ block product
                             ul.row
                                 each product in products 
                                     li.col.l-4.md-4.sm-10.sm-o-1
-                                        .cardProduct
+                                        a.cardProduct(href=`/product/access/` + product.product_id)
                                             .cardProduct__img
                                                 img(src='/img/imgPexel/163880457_1019441735254537_7920892448431206078_n.jpg' alt='product pic')
                                             .cardProduct__title

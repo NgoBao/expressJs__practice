@@ -26,5 +26,10 @@ authRouter
 authRouter
     .get('/logout', authController.logout)
 
+authRouter
+    .get('/cart', checkUserCookie ,authController.cartUser)
 
-module.exports = authRouter
+authRouter
+    .get('/removeCart/:cart_id',checkUserCookie, authController.removeCart)
+
+module.exports = authRouter 

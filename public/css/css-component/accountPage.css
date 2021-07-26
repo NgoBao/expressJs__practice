@@ -1,0 +1,80 @@
+#accountPage {  
+    padding-top: var(--mp-3);
+}
+
+#accountPage .col {
+    border: 1px solid rgb(173, 168, 168, .2);
+}
+
+.accountPage__password-btn {
+    display: block;
+    padding: var(--mp-1-5);
+    border-left: 2px solid transparent ;
+    opacity: .7;
+    transition: opacity .5 ease;
+}
+
+
+
+.accountPage__profile-btn {
+    display: block;
+    padding: var(--mp-1-5);
+    border-left: 2px solid transparent;
+    opacity: .7;
+    transition: opacity .5 ease;
+}
+
+.activeEdit {
+    border-left: 2px solid black ;
+    opacity: 1;
+}
+
+.accountPage__component {
+    padding: var(--mp-1);
+
+}
+
+.accountPage__info {
+    border-bottom: 1px solid rgb(173, 168, 168, .2);
+    list-style: none;
+    margin: none;
+    padding: var(--mp-1-5)
+}
+
+.accountPage__info li {
+    padding-top: var(--mp-0-5);
+}
+
+.accountPage__component-input {
+    display: block; 
+    border: none;
+    background-color: rgb(173, 168, 168, .2);
+    padding: var(--mp-1) var(--mp-1-5);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: var(--mp-1);
+    font-size: .9rem;
+}
+
+.accountPage__btn {
+    display: block;
+    background-color: #1877f2;
+    font-size: var(--fontSize__normal);
+    border: none;
+    color: white;
+    border-radius: 3px;
+    padding: var(--btn-lg);
+    margin: 0 auto;
+    margin-top: var(--mp-1);
+}
+
+.accountPage__err {
+    margin: var(--mp-1);
+    padding: var(--mp-1);
+    text-align: center;
+    background-color: rgba(228, 203, 203, 0.685);
+    border-radius: 3px;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    display: none;
+}
