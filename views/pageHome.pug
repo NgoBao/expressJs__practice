@@ -12,7 +12,7 @@ block homePage
                                 h1.homePage-slider__heading WEB DESIGN ? 
                                 p.homePage-slider__text
                                     | ckeck out our options and feature, then got inspiration
-                                a.homePage-slider__button(href='#')
+                                a.homePage-slider__button(href='/product/1')
                                     | find more
                     .col.l-5.md-5.sm-8.sm-o-2
                         .homePage-slider__show-project
@@ -150,3 +150,20 @@ block homePage
                                 | find more
         h1(style="font-family: 'Dawning of a New Day', cursive; text-align: center; font-size: 3rem;")
             | Let&apos;s take us for your dream now!
+    script.
+        window.addEventListener("scroll", revealEle)
+
+        function revealEle() {
+            var elementNeeds = document.querySelectorAll(".reveal")
+            for (var index = 0; index < elementNeeds.length; index++) {
+                var windowHeight = window.innerHeight
+                var revealTop = elementNeeds[index].getBoundingClientRect().top
+                var revealPoint = 150
+
+                if (revealTop <= windowHeight - revealPoint) {
+                    elementNeeds[index].classList.add('reveal-ex')
+                } else {
+                    elementNeeds[index].classList.remove('reveal-ex')
+                }
+            }
+        }

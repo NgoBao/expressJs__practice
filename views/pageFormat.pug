@@ -84,3 +84,14 @@ body
                             li Stakoverflow 
         h5(style='text-align: center; margin-top: 1rem; font-family: var(--fontFamilyT);')
             | @ let your farith be bigger than your fear - RockPikin
+    script.
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            
+            if (scroll > 0) {
+                $("#homePage-header").addClass("active");
+            }
+            else {
+                $("#homePage-header").removeClass("active");
+            }
+        });

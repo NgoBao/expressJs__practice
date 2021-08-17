@@ -25,25 +25,25 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser(process.env.SECRETCOOKIE))
 
 
-app.use(express.static('public')) 
+app.use(express.static('public'))
 app.set('view engine', 'pug')
 
- 
+
 // test   
 app.get('/', (req, res) => {
-    res.send(req.signedCookies.user_id)
-})     
-//admin page
+        res.send(req.signedCookies.user_id)
+    })
+    //admin page
 app.use('/admin', adminRouter)
-//home page route
+    //home page route  
 app.use('/home', homeRouter)
-//about page route
+    //about page route
 app.use('/about', aboutRouter)
-//contact page route
+    //contact page route
 app.use('/contact', contactRouter)
-//product page route
+    //product page route
 app.use('/product', productRouter)
-//acount route
+    //acount route
 app.use('/account', authRouter)
 
 
@@ -51,7 +51,7 @@ app.use(pageError)
 
 app.listen(port, (req, res) => {
     console.log(`app is running on port ${port}`);
-})  
+})
 
 //fix error auth with number
 //fix error auth with email
